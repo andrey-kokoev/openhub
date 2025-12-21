@@ -3,11 +3,11 @@ import type {
   ProxyRequest,
   ProxyResponse,
   Bindings,
-} from '@openhub/dharma'
+} from '@openhub2/dharma'
 
-export function createProxyHandler(bindings: Bindings): ProxyHandler {
+export function createProxyHandler (bindings: Bindings): ProxyHandler {
   return {
-    async handle(request: ProxyRequest): Promise<ProxyResponse> {
+    async handle (request: ProxyRequest): Promise<ProxyResponse> {
       try {
         const { binding, method, args } = request
         const targetBinding = bindings[binding]

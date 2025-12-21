@@ -1,5 +1,5 @@
 {
-  "name": "@openhub/provider-cloudflare",
+  "name": "@openhub2/provider-cloudflare",
   "version": "0.0.1",
   "description": "OpenHub provider for Cloudflare Workers bindings: D1, KV, R2",
   "license": "Apache-2.0",
@@ -19,7 +19,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@openhub/dharma": "workspace:*"
+    "@openhub2/dharma": "git+https://github.com/andrey-kokoev/openhub2/dharma.git#v0.0.1"
   },
   "devDependencies": {
     "tsup": "^8.0.0",

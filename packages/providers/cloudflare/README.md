@@ -1,35 +1,35 @@
-# @openhub/provider-cloudflare
+# @openhub2/provider-cloudflare
 
 OpenHub provider for Cloudflare Workers bindings: D1, KV, R2.
 
 ## Installation
 ```bash
-pnpm add @openhub/provider-cloudflare
+pnpm add @openhub2/provider-cloudflare
 ```
 
 ## Peer Dependencies
 ```bash
-pnpm add @openhub/dharma
+pnpm add @openhub2/dharma
 ```
 
 ## Usage
 
-With `@openhub/runtime-nitro`:
+With `@openhub2/runtime-nitro`:
 ```typescript
-import { cloudflareProvider } from '@openhub/provider-cloudflare'
-import { createRuntime } from '@openhub/runtime-nitro'
+import { cloudflareProvider } from '@openhub2/provider-cloudflare'
+import { createRuntime } from '@openhub2/runtime-nitro'
 
 const runtime = createRuntime()
 runtime.registerProvider(cloudflareProvider)
 ```
 
-With `@openhub/metaframework-nuxt`:
+With `@openhub2/metaframework-nuxt`:
 ```typescript
 // nuxt.config.ts
 export default defineNuxtConfig({
-  modules: ['@openhub/metaframework-nuxt'],
+  modules: ['@openhub2/metaframework-nuxt'],
   openhub: {
-    provider: '@openhub/provider-cloudflare',
+    provider: '@openhub2/provider-cloudflare',
     remote: true,
   }
 })
@@ -45,7 +45,7 @@ export default defineNuxtConfig({
 
 ## Remote Mode
 
-In remote mode, this provider creates proxy clients that forward requests to your deployed worker's `/__openhub/proxy` endpoint.
+In remote mode, this provider creates proxy clients that forward requests to your deployed worker's `/__openhub2/proxy` endpoint.
 
 Required environment variables:
 ```bash

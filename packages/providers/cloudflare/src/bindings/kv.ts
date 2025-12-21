@@ -4,11 +4,11 @@ import type {
   KVListOptions,
   KVListResult,
   ProxyTransport,
-} from '@openhub/dharma'
+} from '@openhub2/dharma'
 
-export function createKVBinding(transport: ProxyTransport): KVBinding {
+export function createKVBinding (transport: ProxyTransport): KVBinding {
   return {
-    async get(key: string): Promise<string | null> {
+    async get (key: string): Promise<string | null> {
       const response = await transport.send({
         binding: 'kv',
         method: 'get',
@@ -18,7 +18,7 @@ export function createKVBinding(transport: ProxyTransport): KVBinding {
       return response.data as string | null
     },
 
-    async put(key: string, value: string, options?: KVPutOptions): Promise<void> {
+    async put (key: string, value: string, options?: KVPutOptions): Promise<void> {
       const response = await transport.send({
         binding: 'kv',
         method: 'put',
@@ -27,7 +27,7 @@ export function createKVBinding(transport: ProxyTransport): KVBinding {
       if (!response.success) throw new Error(response.error)
     },
 
-    async delete(key: string): Promise<void> {
+    async delete (key: string): Promise<void> {
       const response = await transport.send({
         binding: 'kv',
         method: 'delete',
@@ -36,7 +36,7 @@ export function createKVBinding(transport: ProxyTransport): KVBinding {
       if (!response.success) throw new Error(response.error)
     },
 
-    async list(options?: KVListOptions): Promise<KVListResult> {
+    async list (options?: KVListOptions): Promise<KVListResult> {
       const response = await transport.send({
         binding: 'kv',
         method: 'list',

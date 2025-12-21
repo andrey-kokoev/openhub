@@ -1,5 +1,5 @@
 import { defineNuxtModule, addModule, createResolver } from '@nuxt/kit'
-import { openhubModule as nitroModule } from '@openhub/runtime-nitro'
+import { openhubModule as nitroModule } from '@openhub2/runtime-nitro'
 
 export interface ModuleOptions {
   provider?: string
@@ -8,7 +8,7 @@ export interface ModuleOptions {
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
-    name: '@openhub/metaframework-nuxt',
+    name: '@openhub2/metaframework-nuxt',
     configKey: 'openhub',
     compatibility: {
       nuxt: '^4.0.0'
@@ -17,7 +17,7 @@ export default defineNuxtModule<ModuleOptions>({
   defaults: {
     remote: false
   },
-  async setup(options, nuxt) {
+  async setup (options, nuxt) {
     const resolver = createResolver(import.meta.url)
 
     // Register Nitro runtime module via nitro:config hook
@@ -44,7 +44,7 @@ export default defineNuxtModule<ModuleOptions>({
           icon: 'tabler:box',
           view: {
             type: 'iframe',
-            src: '/__openhub/devtools'
+            src: '/__openhub2/devtools'
           }
         })
       })

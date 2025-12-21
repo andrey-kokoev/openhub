@@ -1,24 +1,24 @@
-# @openhub/metaframework-nuxt
+# @openhub2/metaframework-nuxt
 
 OpenHub integration for Nuxt. Enables `nuxt dev --remote` against real cloud bindings.
 
 ## Installation
 ```bash
-pnpm add @openhub/metaframework-nuxt
+pnpm add @openhub2/metaframework-nuxt
 ```
 
 ## Peer Dependencies
 ```bash
-pnpm add @openhub/dharma @openhub/runtime-nitro @openhub/provider-cloudflare
+pnpm add @openhub2/dharma @openhub2/runtime-nitro @openhub2/provider-cloudflare
 ```
 
 ## Usage
 ```typescript
 // nuxt.config.ts
 export default defineNuxtConfig({
-  modules: ['@openhub/metaframework-nuxt'],
+  modules: ['@openhub2/metaframework-nuxt'],
   openhub: {
-    provider: '@openhub/provider-cloudflare',
+    provider: '@openhub2/provider-cloudflare',
     remote: true, // or 'production' or 'preview'
   }
 })
@@ -49,7 +49,7 @@ OPENHUB_REMOTE_SECRET=your-shared-secret
 
 ## How It Works
 
-1. Module registers `@openhub/runtime-nitro` with Nuxt
+1. Module registers `@openhub2/runtime-nitro` with Nuxt
 2. Runtime registers your chosen provider
 3. In remote mode, bindings proxy to deployed worker
 4. In production, bindings are extracted from platform context

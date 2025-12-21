@@ -1,5 +1,5 @@
 {
-  "name": "@openhub/runtime-nitro",
+  "name": "@openhub2/runtime-nitro",
   "version": "0.0.1",
   "description": "OpenHub runtime integration for Nitro",
   "license": "Apache-2.0",
@@ -19,7 +19,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@openhub/dharma": "workspace:*",
+    "@openhub2/dharma": "workspace:*",
     "h3": "2.0.1-rc.6",
     "pathe": "^2.0.3"
   },

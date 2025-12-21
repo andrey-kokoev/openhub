@@ -96,7 +96,7 @@ An implementation may claim OpenHub conformance only if it passes Dharma's type 
 ## Article VII: Ratification
 
 This Constitution takes effect upon:
-- Publication of @openhub/dharma to npm
+- Publication of @openhub2/dharma to npm
 - At least one conforming Provider
 - At least one conforming Runtime
 - At least one conforming Metaframework

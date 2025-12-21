@@ -1,4 +1,4 @@
-import type { CLIContext } from '@openhub/dharma'
+import type { CLIContext } from '@openhub2/dharma'
 
 export function registerRemoteFlag (cli: CLIContext) {
   cli.registerFlag('remote', {

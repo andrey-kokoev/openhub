@@ -1,4 +1,4 @@
-# @openhub/dharma
+# @openhub2/dharma
 
 Type constraints for the OpenHub ecosystem.
 
@@ -12,13 +12,13 @@ Dharma defines the law that all OpenHub layers must conform to:
 
 ## Installation
 ```bash
-pnpm add -D @openhub/dharma
+pnpm add -D @openhub2/dharma
 ```
 
 ## Usage
 ```typescript
-import type { Provider, Runtime, Metaframework } from '@openhub/dharma'
-import type { Bindings, ProxyHandler } from '@openhub/dharma/subtypes'
+import type { Provider, Runtime, Metaframework } from '@openhub2/dharma'
+import type { Bindings, ProxyHandler } from '@openhub2/dharma/subtypes'
 ```
 
 ## For Implementers

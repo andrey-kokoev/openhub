@@ -1,19 +1,19 @@
-import type { Runtime, Provider, ProxyHandler, Bindings } from '@openhub/dharma'
+import type { Runtime, Provider, ProxyHandler, Bindings } from '@openhub2/dharma'
 
 export class NitroRuntime implements Runtime {
   name = 'nitro'
   private providers: Provider[] = []
   private proxyHandler?: ProxyHandler
 
-  registerProvider(provider: Provider): void {
+  registerProvider (provider: Provider): void {
     this.providers.push(provider)
   }
 
-  registerProxyEndpoint(handler: ProxyHandler): void {
+  registerProxyEndpoint (handler: ProxyHandler): void {
     this.proxyHandler = handler
   }
 
-  injectBindings(context: any, bindings: Bindings): void {
+  injectBindings (context: any, bindings: Bindings): void {
     if (!context.openhub) {
       context.openhub = {}
     }
@@ -23,19 +23,19 @@ export class NitroRuntime implements Runtime {
     }
   }
 
-  isRemoteMode(): boolean {
+  isRemoteMode (): boolean {
     return process.env.OPENHUB_REMOTE === 'true'
   }
 
-  getProviders(): Provider[] {
+  getProviders (): Provider[] {
     return this.providers
   }
 
-  getProxyHandler(): ProxyHandler | undefined {
+  getProxyHandler (): ProxyHandler | undefined {
     return this.proxyHandler
   }
 }
 
-export function createRuntime() {
+export function createRuntime () {
   return new NitroRuntime()
 }

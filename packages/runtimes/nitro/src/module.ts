@@ -7,7 +7,7 @@ export const openhubModule = (nitro: any) => {
   // Register proxy endpoint
   nitro.options.handlers = nitro.options.handlers || []
   nitro.options.handlers.push({
-    route: '/__openhub/proxy',
+    route: '/__openhub2/proxy',
     handler: join(nitro.options.srcDir, 'endpoint/proxy.ts')
   })
 

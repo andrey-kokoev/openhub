@@ -5,7 +5,7 @@ import type {
   QueryResult,
   BatchResult,
   ProxyTransport,
-} from '@openhub/dharma'
+} from '@openhub2/dharma'
 
 class CloudflarePreparedStatement implements PreparedStatement {
   constructor(
@@ -14,11 +14,11 @@ class CloudflarePreparedStatement implements PreparedStatement {
     private args: unknown[] = [],
   ) { }
 
-  bind(...values: unknown[]): PreparedStatement {
+  bind (...values: unknown[]): PreparedStatement {
     return new CloudflarePreparedStatement(this.transport, this.sql, values)
   }
 
-  async all<T = unknown>(): Promise<QueryResult<T>> {
+  async all<T = unknown> (): Promise<QueryResult<T>> {
     const response = await this.transport.send({
       binding: 'database',
       method: 'all',
@@ -28,7 +28,7 @@ class CloudflarePreparedStatement implements PreparedStatement {
     return response.data as QueryResult<T>
   }
 
-  async first<T = unknown>(): Promise<T | null> {
+  async first<T = unknown> (): Promise<T | null> {
     const response = await this.transport.send({
       binding: 'database',
       method: 'first',
@@ -38,7 +38,7 @@ class CloudflarePreparedStatement implements PreparedStatement {
     return response.data as T | null
   }
 
-  async run(): Promise<ExecResult> {
+  async run (): Promise<ExecResult> {
     const response = await this.transport.send({
       binding: 'database',
       method: 'run',
@@ -49,13 +49,13 @@ class CloudflarePreparedStatement implements PreparedStatement {
   }
 }
 
-export function createDatabaseBinding(transport: ProxyTransport): DatabaseBinding {
+export function createDatabaseBinding (transport: ProxyTransport): DatabaseBinding {
   return {
-    prepare(sql: string): PreparedStatement {
+    prepare (sql: string): PreparedStatement {
       return new CloudflarePreparedStatement(transport, sql)
     },
 
-    async exec(sql: string): Promise<ExecResult> {
+    async exec (sql: string): Promise<ExecResult> {
       const response = await transport.send({
         binding: 'database',
         method: 'exec',
@@ -65,7 +65,7 @@ export function createDatabaseBinding(transport: ProxyTransport): DatabaseBindin
       return response.data as ExecResult
     },
 
-    async batch(statements: PreparedStatement[]): Promise<BatchResult> {
+    async batch (statements: PreparedStatement[]): Promise<BatchResult> {
       const rawStatements = statements.map(s => {
         const cs = s as CloudflarePreparedStatement
         // @ts-ignore - accessing private state for transport
@@ -81,7 +81,7 @@ export function createDatabaseBinding(transport: ProxyTransport): DatabaseBindin
       return response.data as BatchResult
     },
 
-    async dump(): Promise<ArrayBuffer> {
+    async dump (): Promise<ArrayBuffer> {
       const response = await transport.send({
         binding: 'database',
         method: 'dump',

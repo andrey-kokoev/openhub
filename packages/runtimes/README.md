@@ -6,15 +6,15 @@ Runtimes execute application code and manage bindings within request context.
 
 | Runtime | Package | Status |
 |---------|---------|--------|
-| Nitro | `@openhub/runtime-nitro` | Official |
-| Hono | `@openhub/runtime-hono` | Community |
-| H3 | `@openhub/runtime-h3` | Community |
+| Nitro | `@openhub2/runtime-nitro` | Official |
+| Hono | `@openhub2/runtime-hono` | Community |
+| H3 | `@openhub2/runtime-h3` | Community |
 
 ## Creating a Runtime Integration
 
-A runtime must implement `Runtime` from `@openhub/dharma`:
+A runtime must implement `Runtime` from `@openhub2/dharma`:
 ```typescript
-import type { Runtime } from '@openhub/dharma'
+import type { Runtime } from '@openhub2/dharma'
 
 export const myRuntime: Runtime = {
   name: 'my-runtime',

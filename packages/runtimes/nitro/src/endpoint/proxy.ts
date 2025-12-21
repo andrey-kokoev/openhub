@@ -1,5 +1,5 @@
 import { defineEventHandler, readBody, getHeader, createError } from 'h3'
-import type { ProxyRequest } from '@openhub/dharma'
+import type { ProxyRequest } from '@openhub2/dharma'
 
 export default defineEventHandler(async (event: any) => {
   const secret = getHeader(event, 'x-openhub-secret')

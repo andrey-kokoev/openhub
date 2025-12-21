@@ -6,15 +6,15 @@ Providers adapt cloud platforms to OpenHub's universal bindings.
 
 | Provider | Package | Status |
 |----------|---------|--------|
-| Cloudflare | `@openhub/provider-cloudflare` | Official |
-| Supabase | `@openhub/provider-supabase` | Community |
-| AWS | `@openhub/provider-aws` | Community |
+| Cloudflare | `@openhub2/provider-cloudflare` | Official |
+| Supabase | `@openhub2/provider-supabase` | Community |
+| AWS | `@openhub2/provider-aws` | Community |
 
 ## Creating a Provider
 
-A provider must implement `Provider` from `@openhub/dharma`:
+A provider must implement `Provider` from `@openhub2/dharma`:
 ```typescript
-import type { Provider } from '@openhub/dharma'
+import type { Provider } from '@openhub2/dharma'
 
 export const myProvider: Provider = {
   name: 'my-provider',

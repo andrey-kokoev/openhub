@@ -3,11 +3,11 @@ import type {
   BlobListOptions,
   BlobListResult,
   ProxyTransport,
-} from '@openhub/dharma'
+} from '@openhub2/dharma'
 
-export function createBlobBinding(transport: ProxyTransport): BlobBinding {
+export function createBlobBinding (transport: ProxyTransport): BlobBinding {
   return {
-    async get(key: string): Promise<Blob | null> {
+    async get (key: string): Promise<Blob | null> {
       const response = await transport.send({
         binding: 'blob',
         method: 'get',
@@ -17,7 +17,7 @@ export function createBlobBinding(transport: ProxyTransport): BlobBinding {
       return response.data as Blob | null
     },
 
-    async put(key: string, value: Blob | ArrayBuffer | ReadableStream): Promise<void> {
+    async put (key: string, value: Blob | ArrayBuffer | ReadableStream): Promise<void> {
       // Note: We might need to handle ReadableStream/ArrayBuffer conversion depending on transport
       const response = await transport.send({
         binding: 'blob',
@@ -27,7 +27,7 @@ export function createBlobBinding(transport: ProxyTransport): BlobBinding {
       if (!response.success) throw new Error(response.error)
     },
 
-    async delete(key: string): Promise<void> {
+    async delete (key: string): Promise<void> {
       const response = await transport.send({
         binding: 'blob',
         method: 'delete',
@@ -36,7 +36,7 @@ export function createBlobBinding(transport: ProxyTransport): BlobBinding {
       if (!response.success) throw new Error(response.error)
     },
 
-    async list(options?: BlobListOptions): Promise<BlobListResult> {
+    async list (options?: BlobListOptions): Promise<BlobListResult> {
       const response = await transport.send({
         binding: 'blob',
         method: 'list',

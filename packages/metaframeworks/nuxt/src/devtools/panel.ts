@@ -4,6 +4,6 @@ export const panel = {
   icon: 'tabler:box',
   view: {
     type: 'iframe',
-    src: '/__openhub/devtools'
+    src: '/__openhub2/devtools'
   }
 }

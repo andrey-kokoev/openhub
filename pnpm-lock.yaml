@@ -26,10 +26,10 @@ importers:
 
   packages/metaframeworks/nuxt:
     dependencies:
-      '@openhub/dharma':
+      '@openhub2/dharma':
         specifier: workspace:*
         version: link:../../dharma
-      '@openhub/runtime-nitro':
+      '@openhub2/runtime-nitro':
         specifier: workspace:*
         version: link:../../runtimes/nitro
     devDependencies:
@@ -51,7 +51,7 @@ importers:
 
   packages/providers/cloudflare:
     dependencies:
-      '@openhub/dharma':
+      '@openhub2/dharma':
         specifier: workspace:*
         version: link:../../dharma
     devDependencies:
@@ -67,7 +67,7 @@ importers:
 
   packages/runtimes/nitro:
     dependencies:
-      '@openhub/dharma':
+      '@openhub2/dharma':
         specifier: workspace:*
         version: link:../../dharma
       h3:

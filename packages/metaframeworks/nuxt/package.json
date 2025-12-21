@@ -1,5 +1,5 @@
 {
-  "name": "@openhub/metaframework-nuxt",
+  "name": "@openhub2/metaframework-nuxt",
   "version": "0.0.1",
   "description": "OpenHub integration for Nuxt",
   "license": "Apache-2.0",
@@ -19,8 +19,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@openhub/dharma": "workspace:*",
-    "@openhub/runtime-nitro": "workspace:*"
+    "@openhub2/dharma": "workspace:*",
+    "@openhub2/runtime-nitro": "workspace:*"
   },
   "peerDependencies": {
     "nuxt": "^4.0.0"
