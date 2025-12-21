@@ -19,15 +19,21 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@openhub/dharma": "workspace:*"
+    "@openhub/dharma": "workspace:*",
+    "h3": "2.0.1-rc.6",
+    "pathe": "^2.0.3"
   },
   "peerDependencies": {
     "nitropack": "^2.0.0"
   },
   "devDependencies": {
+    "@types/node": "^25.0.3",
     "nitropack": "^2.0.0",
     "tsup": "^8.0.0",
     "typescript": "^5.7.0",
     "vitest": "^4.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
