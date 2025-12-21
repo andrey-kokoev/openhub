@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "strict": true,
+      "target": "esnext",
+        "module": "esnext",
+          "moduleResolution": "bundler",
+            "declaration": true,
+              "emitDeclarationOnly": true,
+                "outDir": "dist",
+                  "rootDir": "types"
+  },
+  "include": ["types/**/*.ts"],
+    "exclude": ["types/tests"]
+}
