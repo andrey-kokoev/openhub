@@ -1,0 +1,33 @@
+{
+  "name": "@openhub/runtime-nitro",
+  "version": "0.0.1",
+  "description": "OpenHub runtime integration for Nitro",
+  "license": "Apache-2.0",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@openhub/dharma": "workspace:*"
+  },
+  "peerDependencies": {
+    "nitropack": "^2.0.0"
+  },
+  "devDependencies": {
+    "nitropack": "^2.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.7.0",
+    "vitest": "^4.0.0"
+  }
+}
