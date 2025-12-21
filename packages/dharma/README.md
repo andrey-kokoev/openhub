@@ -25,7 +25,7 @@ import type { Bindings, ProxyHandler } from '@openhub/dharma/subtypes'
 
 If you are building a Provider, Runtime, or Metaframework, your implementation must satisfy the types defined here.
 
-See [INTENT.md](../../INTENT.md) for the full constitution.
+See [constitution.md](../../constitution.md) for the full constitution.
 
 ## License
 
