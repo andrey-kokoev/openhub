@@ -52,8 +52,8 @@ importers:
   packages/providers/cloudflare:
     dependencies:
       '@openhub2/dharma':
-        specifier: workspace:*
-        version: link:../../dharma
+        specifier: latest
+        version: 0.0.1
     devDependencies:
       tsup:
         specifier: ^8.0.0
@@ -680,6 +680,9 @@ packages:
     peerDependenciesMeta:
       rolldown:
         optional: true
+
+  '@openhub2/dharma@0.0.1':
+    resolution: {integrity: sha512-byfDzDrWX7njfaSIKPN63/PjhWGN4H28HBtgNd8W4zc56qfnmzT2EdX9MMQHlTv8FWXYrPG622iIzooyVqYVlQ==}
 
   '@oxc-minify/binding-android-arm64@0.102.0':
     resolution: {integrity: sha512-pknM+ttJTwRr7ezn1v5K+o2P4RRjLAzKI10bjVDPybwWQ544AZW6jxm7/YDgF2yUbWEV9o7cAQPkIUOmCiW8vg==}
@@ -4312,6 +4315,8 @@ snapshots:
       - vti
       - vue-tsc
       - yaml
+
+  '@openhub2/dharma@0.0.1': {}
 
   '@oxc-minify/binding-android-arm64@0.102.0':
     optional: true

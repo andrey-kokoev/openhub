@@ -19,7 +19,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@openhub2/dharma": "git+https://github.com/andrey-kokoev/openhub2/dharma.git#v0.0.1"
+    "@openhub2/dharma": "latest"
   },
   "devDependencies": {
     "tsup": "^8.0.0",
