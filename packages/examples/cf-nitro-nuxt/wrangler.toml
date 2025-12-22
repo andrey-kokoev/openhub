@@ -7,13 +7,16 @@ pages_build_output_dir = "dist/"
 binding = "DB"
 database_name = "example-db"
 database_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" # Replace with your D1 database ID
+preview_database_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" # Replace with your same as database_id
 
 # KV Namespace
 [[kv_namespaces]]
 binding = "KV"
 id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" # Replace with your KV namespace ID
+preview_id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" # Replace with your same as id
 
 # R2 Bucket
 [[r2_buckets]]
 binding = "BLOB"
-bucket_name = "example-bucket"
+bucket_name = "example-bucket" # Replace with your R2 bucket name
+preview_bucket_name = "example-bucket" # Replace with your same as bucket_name
