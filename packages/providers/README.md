@@ -7,6 +7,7 @@ Providers adapt cloud platforms to OpenHub's universal bindings.
 | Provider | Package | Status |
 |----------|---------|--------|
 | Cloudflare | `@openhub2/provider-cloudflare` | Official |
+| Azure | `@openhub2/provider-azure` | Official |
 | Supabase | `@openhub2/provider-supabase` | Community |
 | AWS | `@openhub2/provider-aws` | Community |
 

@@ -17,7 +17,17 @@ export type AWSPlatformContext = {
   platform: 'aws'
 }
 
+export type AzurePlatformContext = {
+  platform: 'azure'
+  env: {
+    DATABASE?: DatabaseBinding
+    CACHE?: KVBinding
+    STORAGE?: BlobBinding
+  }
+}
+
 export type PlatformContext =
   | CloudflarePlatformContext
   | SupabasePlatformContext
   | AWSPlatformContext
+  | AzurePlatformContext
