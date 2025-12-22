@@ -5,11 +5,25 @@ export interface PluginOptions {
   remote?: boolean | 'production' | 'preview'
 }
 
+interface VinxiConfig {
+  server?: {
+    nitro?: {
+      modules?: any[]
+      runtimeConfig?: {
+        openhub?: {
+          remote?: boolean | 'production' | 'preview'
+          provider?: string
+        }
+      }
+    }
+  }
+}
+
 export function openhubPlugin(options: PluginOptions = {}) {
   return {
     name: '@openhub2/metaframework-solidstart',
     
-    async config(vinxiConfig: any) {
+    async config(vinxiConfig: VinxiConfig) {
       // Register Nitro runtime module
       vinxiConfig.server = vinxiConfig.server || {}
       vinxiConfig.server.nitro = vinxiConfig.server.nitro || {}

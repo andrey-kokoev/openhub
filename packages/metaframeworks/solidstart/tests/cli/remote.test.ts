@@ -9,8 +9,8 @@ test('registerRemoteFlag registers remote flag', () => {
   registerRemoteFlag(mockCli as any)
   
   expect(mockCli.registerFlag).toHaveBeenCalledWith('remote', {
-    type: 'boolean',
-    description: 'Enable remote mode for OpenHub bindings',
-    default: false
+    type: 'string',
+    description: 'Enable remote mode for OpenHub bindings (true, false, production, preview)',
+    default: 'false'
   })
 })

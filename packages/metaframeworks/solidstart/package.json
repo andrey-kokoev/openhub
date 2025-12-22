@@ -23,7 +23,7 @@
     "@openhub2/runtime-nitro": "workspace:*"
   },
   "peerDependencies": {
-    "@solidjs/start": "^1.0.0"
+    "@solidjs/start": "^1.0.14"
   },
   "devDependencies": {
     "@solidjs/start": "^1.0.14",
