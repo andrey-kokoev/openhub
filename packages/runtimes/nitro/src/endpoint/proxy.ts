@@ -1,6 +1,7 @@
 import { defineEventHandler, readBody, getHeader, createError } from 'h3'
 import type { H3Event } from 'h3'
 import type { ProxyRequest } from '@openhub2/dharma'
+import runtime from '../context/runtime'
 
 export default defineEventHandler(async (event: H3Event) => {
   const secret = getHeader(event, 'x-openhub-secret')
@@ -14,14 +15,7 @@ export default defineEventHandler(async (event: H3Event) => {
   }
 
   const body = await readBody<ProxyRequest>(event)
-  const runtime = event.context.openhub?.runtime
-
-  if (!runtime) {
-    throw createError({
-      statusCode: 500,
-      statusMessage: 'Runtime not initialized'
-    })
-  }
+  // Use the singleton runtime
 
   const handler = runtime.getProxyHandler()
   if (!handler) {

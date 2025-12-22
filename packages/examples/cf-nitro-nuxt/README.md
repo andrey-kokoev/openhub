@@ -19,6 +19,9 @@ pnpm install
 
 # Or from this directory
 pnpm install
+
+# Set up the D1 database schema (if using remote mode)
+wrangler d1 execute openhub-examples-test-fixture --remote --file=./migrations/0001_create_users.sql
 ```
 
 ## Development
@@ -53,7 +56,8 @@ pnpm dev
 | Endpoint | Method | Binding | Description |
 |----------|--------|---------|-------------|
 | `/api/users` | GET | D1 | List users from database |
-| `/api/session` | GET | KV | Get/create session |
+| `/api/users` | POST | D1 | Create a new user |
+| `/api/sessions` | GET | KV | Get/create session |
 | `/api/files` | GET | R2 | List uploaded files |
 | `/api/files` | POST | R2 | Upload file |
 

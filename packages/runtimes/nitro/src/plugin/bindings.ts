@@ -1,14 +1,7 @@
-import { defineNitroPlugin, useRuntimeConfig } from 'nitropack/runtime'
-import type { NitroRuntimeConfig } from 'nitropack/types'
+import { defineNitroPlugin } from 'nitropack/runtime'
 import type { H3Event } from 'h3'
 import type { PlatformContext } from '@openhub2/dharma'
-import type { NitroRuntime } from '../runtime'
-
-type OpenhubNitroRuntimeConfig = NitroRuntimeConfig & {
-  openhub?: {
-    runtime?: NitroRuntime
-  }
-}
+import runtime from '../context/runtime'
 
 function isRecord (value: unknown): value is Record<string, unknown> {
   return value !== null && typeof value === 'object'
@@ -51,13 +44,6 @@ function getPlatformContext (event: H3Event): PlatformContext | undefined {
 }
 
 export default defineNitroPlugin((nitroApp) => {
-  const runtime = useRuntimeConfig<OpenhubNitroRuntimeConfig>().openhub?.runtime
-
-  if (!runtime) {
-    console.error('[openhub] Runtime not found in runtime config')
-    return
-  }
-
   // Nitro plugin to inject bindings into every request
   nitroApp.hooks.hook('request', async (event: H3Event) => {
     event.context.openhub = event.context.openhub || {}

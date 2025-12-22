@@ -11,6 +11,8 @@
     "build": "nuxt build",
     "preview": "nuxt preview",
     "deploy": "wrangler deploy",
+    "db:migrate": "wrangler d1 execute openhub-examples-test-fixture --remote --file=./migrations/0001_create_users.sql",
+    "db:migrate:local": "wrangler d1 execute openhub-examples-test-fixture --local --file=./migrations/0001_create_users.sql",
     "typecheck": "nuxt typecheck",
     "clean_install": "rm -rf node_modules dist .nuxt .output .wrangler && pnpm install"
   },
