@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@openhub2/metaframework-nuxt": "workspace:*",
+    "@openhub2/runtime-nitro": "workspace:*",
     "@openhub2/provider-cloudflare": "workspace:*",
     "nuxt": "^4.2.2",
     "vue": "^3.5.26",

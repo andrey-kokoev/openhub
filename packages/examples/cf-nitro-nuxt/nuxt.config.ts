@@ -1,20 +1,12 @@
-// packages/examples/cf-nitro-nuxt/nuxt.config.ts
 import { defineNuxtConfig } from 'nuxt/config'
-import type { NuxtConfig } from '@nuxt/schema'
 
 export default defineNuxtConfig({
-  modules: ['@openhub2/metaframework-nuxt'],
-
-  openhub: {
-    provider: '@openhub2/provider-cloudflare',
-    remote: false,
-  },
-
-  nitro: {
-    preset: 'cloudflare-pages',
-  },
-
+  modules: [
+    '@openhub2/metaframework-nuxt',
+    '@nuxt/devtools'
+  ],
   devtools: { enabled: true },
-
-  compatibilityDate: '2025-06-01',
-} satisfies NuxtConfig)
+  future: { compatibilityVersion: 4 },
+  compatibilityDate: "2025-12-21",
+  ssr: true
+})
