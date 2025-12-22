@@ -11,6 +11,11 @@ export type CloudflarePlatformContext = {
 
 export type SupabasePlatformContext = {
   platform: 'supabase'
+  env: {
+    DATABASE?: DatabaseBinding
+    KV?: KVBinding
+    STORAGE?: BlobBinding
+  }
 }
 
 export type AWSPlatformContext = {

@@ -1,0 +1,1 @@
+export { extractBindings } from './extract'
