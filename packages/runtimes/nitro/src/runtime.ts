@@ -29,7 +29,14 @@ export class NitroRuntime implements Runtime {
   }
 
   isRemoteMode (): boolean {
-    return this.remote || process.env.OPENHUB_REMOTE === 'true'
+    if (this.remote) {
+      return true
+    }
+    try {
+      return typeof process !== 'undefined' && process.env?.OPENHUB_REMOTE === 'true'
+    } catch {
+      return false
+    }
   }
 
   getProviders (): Provider[] {

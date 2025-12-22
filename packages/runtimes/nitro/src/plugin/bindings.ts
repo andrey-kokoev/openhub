@@ -53,37 +53,41 @@ export default defineNitroPlugin((nitroApp) => {
 
   // Nitro plugin to inject bindings into every request
   nitroApp.hooks.hook('request', async (event: H3Event) => {
-    event.context.openhub = event.context.openhub || {}
-    event.context.openhub.runtime = runtime
+    try {
+      event.context.openhub = event.context.openhub || {}
+      event.context.openhub.runtime = runtime
 
-    let bindings = {}
-    const platformContext = getPlatformContext(event)
+      let bindings = {}
+      const platformContext = getPlatformContext(event)
 
-    if (runtime.isRemoteMode()) {
-      const providers = runtime.getProviders()
-      if (providers.length > 0 && config?.remoteUrl && config?.remoteSecret) {
-        const transport = new NitroHttpTransport(config.remoteUrl, config.remoteSecret)
-        // For now, we use the first provider to create remote bindings
-        // In the future, we might want to support multiple providers
-        const provider = providers[0]
-        bindings = provider.createLocalBindings(transport)
-      }
-    } else {
-      const providers = runtime.getProviders()
-      for (const provider of providers) {
-        if (!platformContext) {
-          continue
+      if (runtime.isRemoteMode()) {
+        const providers = runtime.getProviders()
+        if (providers.length > 0 && config?.remoteUrl && config?.remoteSecret) {
+          const transport = new NitroHttpTransport(config.remoteUrl, config.remoteSecret)
+          // For now, we use the first provider to create remote bindings
+          // In the future, we might want to support multiple providers
+          const provider = providers[0]
+          bindings = provider.createLocalBindings(transport)
         }
+      } else {
+        const providers = runtime.getProviders()
+        for (const provider of providers) {
+          if (!platformContext) {
+            continue
+          }
 
-        const extracted = provider.extractBindings(platformContext)
-        bindings = { ...bindings, ...extracted }
+          const extracted = provider.extractBindings(platformContext)
+          bindings = { ...bindings, ...extracted }
 
-        // Register proxy handler for the remote worker
-        const handler = provider.createProxyHandler(extracted)
-        runtime.registerProxyEndpoint(handler)
+          // Register proxy handler for the remote worker
+          const handler = provider.createProxyHandler(extracted)
+          runtime.registerProxyEndpoint(handler)
+        }
       }
-    }
 
-    runtime.injectBindings(event.context, bindings)
+      runtime.injectBindings(event.context, bindings)
+    } catch (error: any) {
+      console.error('[openhub] Error in request hook:', error)
+    }
   })
 })
