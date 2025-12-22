@@ -1,28 +1,27 @@
 {
   "name": "@openhub2/dharma",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Type constraints for the OpenHub ecosystem",
   "license": "Apache-2.0",
   "type": "module",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts"
+      "types": "./types/index.ts"
     },
     "./layers": {
-      "types": "./dist/layers.d.ts"
+      "types": "./types/layers.ts"
     },
     "./boundaries": {
-      "types": "./dist/boundaries.d.ts"
+      "types": "./types/boundaries.ts"
     },
     "./subtypes": {
-      "types": "./dist/subtypes/index.d.ts"
+      "types": "./types/subtypes/index.ts"
     }
   },
   "files": [
-    "dist"
+    "types"
   ],
   "scripts": {
-    "build": "tsc",
     "test:types": "tsc --noEmit -p types/tests/tsconfig.json"
   },
   "devDependencies": {
