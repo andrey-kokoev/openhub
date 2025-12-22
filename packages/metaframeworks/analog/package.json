@@ -23,7 +23,7 @@
     "@openhub2/runtime-nitro": "workspace:*"
   },
   "peerDependencies": {
-    "@analogjs/platform": "^1.0.0"
+    "@analogjs/platform": "^1.14.0"
   },
   "devDependencies": {
     "@analogjs/platform": "^1.14.0",

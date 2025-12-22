@@ -12,11 +12,9 @@ export function openhubPlugin(options: PluginOptions = {}): any {
     config(config: any) {
       // Ensure Nitro config exists
       if (!config.nitro) {
-        // @ts-ignore
         config.nitro = {}
       }
       
-      // @ts-ignore
       const nitroConfig = config.nitro
       
       // Register Nitro runtime module
@@ -35,7 +33,8 @@ export function openhubPlugin(options: PluginOptions = {}): any {
     configureServer(server: any) {
       // Add OpenHub devtools panel if in dev mode
       // Analog uses Vite's dev server, so we can integrate here
-      if (server.config.mode === 'development') {
+      const isDev = process.env.NODE_ENV === 'development' || server.config.command === 'serve'
+      if (isDev) {
         server.middlewares.use((req: any, res: any, next: any) => {
           if (req.url === '/__openhub2/devtools') {
             res.writeHead(200, { 'Content-Type': 'text/html' })
