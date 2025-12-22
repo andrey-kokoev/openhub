@@ -59,8 +59,8 @@ importers:
   packages/runtimes/nitro:
     dependencies:
       '@openhub2/dharma':
-        specifier: workspace:*
-        version: link:../../dharma
+        specifier: 0.0.5
+        version: 0.0.5
       h3:
         specifier: 2.0.1-rc.6
         version: 2.0.1-rc.6
@@ -674,6 +674,9 @@ packages:
 
   '@openhub2/dharma@0.0.4':
     resolution: {integrity: sha512-mD6aHrU2MGD6+m3sNac8xNful7ZUOUNxrG08zUBymvpN7AlJE43n8n4l1mxX0A6fTfdI4L96IPcC/4E3vYguaQ==}
+
+  '@openhub2/dharma@0.0.5':
+    resolution: {integrity: sha512-C3pHVcDIO3Al9ehR2ZaWrZ2tOhqTcyw0qOWTKakNeQ+2CMYGhAe/gWxUkbDdmTYkKDMOcO85YuIFE3JC0JU5iw==}
 
   '@oxc-minify/binding-android-arm64@0.102.0':
     resolution: {integrity: sha512-pknM+ttJTwRr7ezn1v5K+o2P4RRjLAzKI10bjVDPybwWQ544AZW6jxm7/YDgF2yUbWEV9o7cAQPkIUOmCiW8vg==}
@@ -4304,6 +4307,8 @@ snapshots:
       - yaml
 
   '@openhub2/dharma@0.0.4': {}
+
+  '@openhub2/dharma@0.0.5': {}
 
   '@oxc-minify/binding-android-arm64@0.102.0':
     optional: true
