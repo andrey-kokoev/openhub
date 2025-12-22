@@ -6,8 +6,10 @@ test("schema has provider property", () => {
   expect(schema.properties.provider.type).toBe("string");
 });
 
-test("schema has remote property", () => {
+test("schema has remote property with string type supporting boolean and enum values", () => {
   expect(schema.properties.remote).toBeDefined();
-  expect(schema.properties.remote.type).toBe("boolean");
+  expect(schema.properties.remote.type).toBe("string");
+  expect(schema.properties.remote.description).toContain("production");
+  expect(schema.properties.remote.description).toContain("preview");
   expect(schema.properties.remote.default).toBe(false);
 });

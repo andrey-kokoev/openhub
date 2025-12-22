@@ -7,9 +7,10 @@ export const schema: ConfigSchema = {
       description: "Provider package name (e.g. @openhub2/provider-cloudflare)",
     },
     remote: {
-      type: "boolean",
+      type: "string",
       default: false,
-      description: "Enable remote mode for bindings",
+      description:
+        "Enable remote mode for bindings (boolean or 'production' | 'preview')",
     },
   },
 };
