@@ -7,7 +7,7 @@ Metaframeworks provide developer experience on top of OpenHub runtimes.
 | Metaframework | Package | Status |
 |---------------|---------|--------|
 | Nuxt | `@openhub2/metaframework-nuxt` | Official |
-| Analog | `@openhub2/metaframework-analog` | Community |
+| Analog | `@openhub2/metaframework-analog` | Official |
 | SolidStart | `@openhub2/metaframework-solidstart` | Community |
 
 ## Creating a Metaframework Integration
