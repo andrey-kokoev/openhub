@@ -5,8 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "nuxt dev",
-    "dev:remote": "nuxt dev --remote",    
+    "dev:remote": "nuxt dev --remote",
     "prepare": "nuxt prepare",
+    "test": "(pnpm run test:unit) && (pnpm run test:e2e)",
+    "test:unit": "vitest run",
+    "test:e2e": "playwright test",
     "build": "nuxt build",
     "deploy": "wrangler deploy",
     "preview": "nuxt preview",
@@ -16,14 +19,17 @@
     "clean_install": "rm -rf node_modules dist .nuxt .output .wrangler && pnpm install"
   },
   "dependencies": {
+    "@nuxt/kit": "^4.2.2",
     "@openhub2/metaframework-nuxt": "workspace:*",
-    "@openhub2/runtime-nitro": "workspace:*",
     "@openhub2/provider-cloudflare": "workspace:*",
+    "@openhub2/runtime-nitro": "workspace:*",
     "nuxt": "^4.2.2",
-    "vue": "^3.5.26",
-    "@nuxt/kit": "^4.2.2"
+    "vue": "^3.5.26"
   },
   "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "playwright": "^1.57.0",
+    "vitest": "^4.0.16",
     "wrangler": "^4.56.0"
   },
   "publishConfig": {
