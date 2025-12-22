@@ -11,5 +11,5 @@ test("schema has remote property with string type supporting boolean and enum va
   expect(schema.properties.remote.type).toBe("string");
   expect(schema.properties.remote.description).toContain("production");
   expect(schema.properties.remote.description).toContain("preview");
-  expect(schema.properties.remote.default).toBe(false);
+  expect(schema.properties.remote.default).toBe("false");
 });

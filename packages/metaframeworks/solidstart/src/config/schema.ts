@@ -8,7 +8,7 @@ export const schema: ConfigSchema = {
     },
     remote: {
       type: "string",
-      default: false,
+      default: "false",
       description:
         "Enable remote mode for bindings (boolean or 'production' | 'preview')",
     },
