@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.57.0",
+    "execa": "^9.6.1",
     "playwright": "^1.57.0",
     "vitest": "^4.0.16",
     "wrangler": "^4.56.0"
