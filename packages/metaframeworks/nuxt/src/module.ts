@@ -1,4 +1,4 @@
-import { defineNuxtModule, addModule, createResolver } from '@nuxt/kit'
+import { defineNuxtModule, createResolver } from '@nuxt/kit'
 import { openhubModule as nitroModule } from '@openhub2/runtime-nitro'
 
 export interface ModuleOptions {

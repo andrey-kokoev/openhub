@@ -1,4 +1,4 @@
-import type { Metaframework } from '../../../dharma/src/types'
+import type { Metaframework } from '@openhub2/dharma'
 import { schema } from './config/schema'
 import { registerRemoteFlag } from './cli'
 import { registerDevtools } from './devtools'
