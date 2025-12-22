@@ -14,6 +14,7 @@
     "test": "pnpm -r test",
     "typecheck": "pnpm -r typecheck",
     "clean": "pnpm -r exec rm -rf dist node_modules",
+    "clean_install": "rm -rf node_modules dist && pnpm install",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint .",

@@ -20,7 +20,8 @@
   "scripts": {
     "build": "tsup src/index.ts --format esm --dts --external @nuxt/kit --external @nuxt/schema --external nuxt --external nitropack --shims",
     "test": "vitest",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "clean_install": "rm -rf node_modules dist && pnpm install"
   },
   "dependencies": {
     "@openhub2/dharma": "workspace:*",
