@@ -1,6 +1,13 @@
 # Example: Cloudflare + Nitro + Nuxt
-
 Full-stack example using OpenHub with Cloudflare bindings (D1, KV, R2).
+
+## Understanding context
+If you're reading me, you probably want to read the sequence:
+1. [openhub monorepo README](../../README.md)
+2. [openhub runtime nitro README](../../runtime/nitro/README.md)
+3. [openhub metaframework nuxt README](../../metaframework/nuxt/README.md)
+4. [openhub provider cloudflare README](../../provider/cloudflare/README.md)
+Then come back to me for the full example details.
 
 ## Prerequisites
 
