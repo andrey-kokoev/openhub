@@ -24,17 +24,17 @@ pnpm add @solidjs/start
 
 ```typescript
 // app.config.ts
-import { defineConfig } from '@solidjs/start/config'
-import openhub from '@openhub2/metaframework-solidstart'
+import { defineConfig } from "@solidjs/start/config";
+import openhub from "@openhub2/metaframework-solidstart";
 
 export default defineConfig({
   plugins: [
     openhub({
-      provider: '@openhub2/provider-cloudflare',
+      provider: "@openhub2/provider-cloudflare",
       remote: true, // or 'production' or 'preview'
-    })
-  ]
-})
+    }),
+  ],
+});
 ```
 
 ## CLI
@@ -50,17 +50,17 @@ solid-start dev --remote=preview
 
 ## Configuration
 
-| Option | Type | Default | Description |
-|--------|------|---------|-------------|
-| `provider` | `string` | - | Provider package name |
-| `remote` | `boolean \| 'production' \| 'preview'` | `false` | Enable remote mode |
+| Option     | Type                                   | Default | Description           |
+| ---------- | -------------------------------------- | ------- | --------------------- |
+| `provider` | `string`                               | -       | Provider package name |
+| `remote`   | `boolean \| 'production' \| 'preview'` | `false` | Enable remote mode    |
 
 ## Environment Variables
 
-| Variable | Required | Description |
-|----------|----------|-------------|
-| `OPENHUB_REMOTE_URL` | In remote mode | Deployed worker URL |
-| `OPENHUB_REMOTE_SECRET` | In remote mode | Shared auth secret |
+| Variable                | Required       | Description         |
+| ----------------------- | -------------- | ------------------- |
+| `OPENHUB_REMOTE_URL`    | In remote mode | Deployed worker URL |
+| `OPENHUB_REMOTE_SECRET` | In remote mode | Shared auth secret  |
 
 ## How It Works
 
