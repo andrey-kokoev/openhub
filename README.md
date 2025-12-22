@@ -81,6 +81,12 @@ packages/
 
 Metaframeworks and runtimes don't depend on providers. Users choose and install their provider.
 
+## Examples
+
+| Example | Description |
+|---------|-------------|
+| [cf-nitro-nuxt](./examples/cf-nitro-nuxt/) | Nuxt + Nitro + Cloudflare (D1, KV, R2) |
+
 ## Quick Start
 
 ```bash
@@ -292,10 +298,12 @@ openhub/
 │   ├── dharma/
 │   │   ├── src/
 │   │   │   ├── index.ts      # Main exports
-│   │   │   ├── layers.ts     # Provider, Runtime, Metaframework types
-│   │   │   ├── boundaries.ts # Cross-layer contracts
-│   │   │   └── subtypes/
-│   │   │       └── index.ts  # Bindings, ProxyHandler, etc.
+│   │   │   ├── types/
+│   │   │   │   ├── layers.ts     # Provider, Runtime, Metaframework types
+│   │   │   │   ├── boundaries.ts # Cross-layer contracts
+│   │   │   │   └── subtypes/
+│   │   │   │       └── index.ts  # Bindings, ProxyHandler, etc.
+│   │   │   └── index.ts
 │   │   └── package.json
 │   ├── providers/
 │   │   ├── README.md
@@ -312,6 +320,12 @@ openhub/
 │       └── nuxt/
 │           ├── src/index.ts
 │           └── package.json
+├── examples/
+│   └── cf-nitro-nuxt/        # Full-stack Cloudflare example
+│       ├── server/api/       # API routes using bindings
+│       ├── pages/            # Vue pages
+│       ├── nuxt.config.ts
+│       └── wrangler.toml
 └── pnpm-workspace.yaml
 ```
 

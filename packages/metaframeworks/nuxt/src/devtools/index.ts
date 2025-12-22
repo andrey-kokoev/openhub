@@ -1,8 +1,13 @@
 import type { DevtoolsContext } from '@openhub2/dharma'
+import { panel } from './panel'
 
-export function registerDevtools (devtools: DevtoolsContext) {
-  devtools.registerPanel('openhub', {
-    label: 'OpenHub',
-    icon: 'tabler:box',
-  })
+/**
+ * Register OpenHub devtools panel for Nuxt Devtools
+ * Conforms to Article IV Section 2 of the Constitution:
+ * Metaframeworks may provide devtools integration
+ */
+export function registerDevtools (devtools: DevtoolsContext): void {
+  devtools.registerPanel(panel.name, panel)
 }
+
+export { panel }

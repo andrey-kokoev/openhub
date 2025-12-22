@@ -1,7 +1,7 @@
 {
-  "name": "@openhub2/metaframework-nuxt",
-  "version": "0.0.3",
-  "description": "OpenHub integration for Nuxt",
+  "name": "@openhub2/runtime-h3",
+  "version": "0.0.1",
+  "description": "OpenHub runtime integration for H3",
   "license": "Apache-2.0",
   "type": "module",
   "exports": {
@@ -19,15 +19,14 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@openhub2/dharma": "workspace:*",
-    "@openhub2/runtime-nitro": "workspace:*"
+    "@openhub2/dharma": "workspace:*"
   },
   "peerDependencies": {
-    "nuxt": "^4.2.2"
+    "h3": "^1.0.0"
   },
   "devDependencies": {
-    "@nuxt/kit": "^4.2.2",
-    "nuxt": "^4.2.2",
+    "@types/node": "^25.0.3",
+    "h3": "^1.15.4",
     "tsup": "^8.5.1",
     "typescript": "^5.9.3",
     "vitest": "^4.0.16"

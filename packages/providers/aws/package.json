@@ -1,7 +1,7 @@
 {
-  "name": "@openhub2/metaframework-nuxt",
-  "version": "0.0.3",
-  "description": "OpenHub integration for Nuxt",
+  "name": "@openhub2/provider-aws",
+  "version": "0.0.1",
+  "description": "OpenHub provider for AWS: RDS, DynamoDB, S3",
   "license": "Apache-2.0",
   "type": "module",
   "exports": {
@@ -19,15 +19,9 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@openhub2/dharma": "workspace:*",
-    "@openhub2/runtime-nitro": "workspace:*"
-  },
-  "peerDependencies": {
-    "nuxt": "^4.2.2"
+    "@openhub2/dharma": "workspace:*"
   },
   "devDependencies": {
-    "@nuxt/kit": "^4.2.2",
-    "nuxt": "^4.2.2",
     "tsup": "^8.5.1",
     "typescript": "^5.9.3",
     "vitest": "^4.0.16"

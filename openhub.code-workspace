@@ -1,8 +1,11 @@
 {
 	"folders": [
-		{
-			"path": "."
-		}
+    {
+      "path": "."
+    },
+    {
+      "path": "../smart-scheduling"
+    }
   ],
   "settings": {}
 }
