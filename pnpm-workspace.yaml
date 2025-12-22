@@ -3,6 +3,10 @@ packages:
   - packages/providers/*
   - packages/runtimes/*
   - packages/metaframeworks/*
+  - packages/examples/*
+
 onlyBuiltDependencies:
   - '@parcel/watcher'
   - esbuild
+  - sharp
+  - workerd

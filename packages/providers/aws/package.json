@@ -1,0 +1,32 @@
+{
+  "name": "@openhub2/provider-aws",
+  "version": "0.0.1",
+  "description": "OpenHub provider for AWS: RDS, DynamoDB, S3",
+  "license": "Apache-2.0",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@openhub2/dharma": "workspace:*"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.16"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
