@@ -1,4 +1,4 @@
-import type { DevtoolsContext } from '@openhub2/dharma'
+import type { DevtoolsContext } from '../../../../dharma/src/types'
 
 export function registerDevtools (devtools: DevtoolsContext) {
   devtools.registerPanel('openhub', {

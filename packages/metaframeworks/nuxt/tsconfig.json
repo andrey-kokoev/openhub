@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    /* Base configuration */
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": ["ESNext", "DOM"], // DOM required for Devtools integration components
+    "strict": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    
+    /* Build settings */
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+
+    /* Monorepo Path Mapping */
+    "paths": {
+      "@openhub2/dharma": ["../../dharma/src/types/index.ts"],
+      "@openhub2/dharma/subtypes": ["../../dharma/src/types/subtypes/index.ts"],
+      "@openhub2/runtime-nitro": ["../../runtimes/nitro/src/index.ts"],
+      "@openhub2/provider-cloudflare": ["../../providers/cloudflare/src/index.ts"]
+    }
+  },
+  "include": [
+    "src/**/*",
+    "../../*.d.ts" // Shared ambient types if any
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "test"
+  ]
+}

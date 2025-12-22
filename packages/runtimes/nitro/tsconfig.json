@@ -1,31 +1,39 @@
 {
   "compilerOptions": {
+    /* Base configuration */
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    "lib": [
-      "ESNext",
-      "DOM"
-    ],
+    "lib": ["ESNext"],
     "strict": true,
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    "outDir": "dist",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    
+    /* Build settings */
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+
+    /* Nitro & H3 Specifics */
+    "types": [
+      "nitropack",
+      "h3"
+    ],
+
+    /* Monorepo Path Mapping */
     "paths": {
-      "@openhub2/dharma": [
-        "../../dharma/types"
-      ]
+      "@openhub2/dharma": ["../../dharma/types/index.ts"],
+      "@openhub2/dharma/subtypes": ["../../dharma/types/subtypes/index.ts"]
     }
   },
   "include": [
-    "src/**/*.ts"
+    "src/**/*"
   ],
   "exclude": [
     "node_modules",
-    "dist",
-    "tests"
+    "dist"
   ]
 }

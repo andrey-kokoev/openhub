@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    /* Base configuration matching the ecosystem style */
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": ["ESNext"],
+    "strict": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    
+    /* Build settings */
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "removeComments": false,
+
+    /* Path mapping to Dharma (Local Monorepo resolution) */
+    "paths": {
+      "@openhub2/dharma": ["../../dharma/types/index.ts"],
+      "@openhub2/dharma/subtypes": ["../../dharma/types/subtypes/index.ts"]
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "**/*.test.ts"]
+}

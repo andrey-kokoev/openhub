@@ -1,4 +1,4 @@
-import type { Runtime, Provider, ProxyHandler, Bindings } from '@openhub2/dharma'
+import type { Runtime, Provider, ProxyHandler, Bindings } from '../../../dharma/src/types'
 
 export class NitroRuntime implements Runtime {
   name = 'nitro'

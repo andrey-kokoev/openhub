@@ -23,14 +23,14 @@
     "@openhub2/runtime-nitro": "workspace:*"
   },
   "peerDependencies": {
-    "nuxt": "^4.0.0"
+    "nuxt": "^4.2.2"
   },
   "devDependencies": {
-    "@nuxt/kit": "^4.0.0",
-    "nuxt": "^4.0.0",
-    "tsup": "^8.0.0",
-    "typescript": "^5.7.0",
-    "vitest": "^4.0.0"
+    "@nuxt/kit": "^4.2.2",
+    "nuxt": "^4.2.2",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.16"
   },
   "publishConfig": {
     "access": "public"
