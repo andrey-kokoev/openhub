@@ -11,6 +11,10 @@ export interface ModuleOptions {
   provider?: string
   /** Enable remote mode: false (local), true, 'production', or 'preview' */
   remote?: boolean | 'production' | 'preview'
+  /** Remote proxy URL */
+  remoteUrl?: string
+  /** Remote proxy secret */
+  remoteSecret?: string
 }
 
 /**
@@ -38,6 +42,12 @@ export default defineNuxtModule<ModuleOptions>({
   },
   async setup (options, nuxt) {
     const resolver = createResolver(import.meta.url)
+
+    // ✅ Detect CLI flags
+    const isRemoteFlag = process.argv.includes('--remote')
+    const isLocalFlag = process.argv.includes('--local')
+
+    const remote = isRemoteFlag ? true : (isLocalFlag ? false : options.remote)
 
     // ✅ Type augmentation: teach TS about nuxt.config.ts -> openhub: {...}
     addTypeTemplate({
@@ -67,17 +77,23 @@ export {}
       // Pass OpenHub config to Nitro runtime
       nitroConfig.runtimeConfig = nitroConfig.runtimeConfig || {}
       nitroConfig.runtimeConfig.openhub = {
-        remote: options.remote,
+        remote: remote,
         provider: options.provider,
+        remoteUrl: options.remoteUrl || process.env.OPENHUB_REMOTE_URL,
+        remoteSecret: options.remoteSecret || process.env.OPENHUB_REMOTE_SECRET,
       }
     })
 
     // ✅ Expose config to app (client + server)
     nuxt.options.runtimeConfig.openhub = nuxt.options.runtimeConfig.openhub || {}
     // @ts-expect-error - nuxt type augmentation
-    nuxt.options.runtimeConfig.openhub.remote = options.remote
+    nuxt.options.runtimeConfig.openhub.remote = remote
     // @ts-expect-error - nuxt type augmentation
     nuxt.options.runtimeConfig.openhub.provider = options.provider
+    // @ts-expect-error - nuxt type augmentation
+    nuxt.options.runtimeConfig.openhub.remoteUrl = options.remoteUrl || process.env.OPENHUB_REMOTE_URL
+    // @ts-expect-error - nuxt type augmentation
+    nuxt.options.runtimeConfig.openhub.remoteSecret = options.remoteSecret || process.env.OPENHUB_REMOTE_SECRET
 
     // ✅ Register devtools panel in dev mode
     if (nuxt.options.dev) {

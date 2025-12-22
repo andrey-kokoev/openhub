@@ -1,7 +1,8 @@
-import { defineNitroPlugin } from 'nitropack/runtime'
+import { defineNitroPlugin, useRuntimeConfig } from 'nitropack/runtime'
 import type { H3Event } from 'h3'
 import type { PlatformContext } from '@openhub2/dharma'
 import runtime from '../context/runtime'
+import { NitroHttpTransport } from '../transport/http'
 
 function isRecord (value: unknown): value is Record<string, unknown> {
   return value !== null && typeof value === 'object'
@@ -44,6 +45,12 @@ function getPlatformContext (event: H3Event): PlatformContext | undefined {
 }
 
 export default defineNitroPlugin((nitroApp) => {
+  const config = useRuntimeConfig().openhub as any
+
+  if (config?.remote) {
+    runtime.setRemoteMode(true)
+  }
+
   // Nitro plugin to inject bindings into every request
   nitroApp.hooks.hook('request', async (event: H3Event) => {
     event.context.openhub = event.context.openhub || {}
@@ -54,8 +61,12 @@ export default defineNitroPlugin((nitroApp) => {
 
     if (runtime.isRemoteMode()) {
       const providers = runtime.getProviders()
-      if (providers.length > 0) {
-        // Placeholder for remote binding logic
+      if (providers.length > 0 && config?.remoteUrl && config?.remoteSecret) {
+        const transport = new NitroHttpTransport(config.remoteUrl, config.remoteSecret)
+        // For now, we use the first provider to create remote bindings
+        // In the future, we might want to support multiple providers
+        const provider = providers[0]
+        bindings = provider.createLocalBindings(transport)
       }
     } else {
       const providers = runtime.getProviders()

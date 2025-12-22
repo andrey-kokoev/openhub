@@ -4,6 +4,11 @@ export class NitroRuntime implements Runtime {
   name = 'nitro'
   private providers: Provider[] = []
   private proxyHandler?: ProxyHandler
+  private remote = false
+
+  setRemoteMode (remote: boolean): void {
+    this.remote = remote
+  }
 
   registerProvider (provider: Provider): void {
     this.providers.push(provider)
@@ -24,7 +29,7 @@ export class NitroRuntime implements Runtime {
   }
 
   isRemoteMode (): boolean {
-    return process.env.OPENHUB_REMOTE === 'true'
+    return this.remote || process.env.OPENHUB_REMOTE === 'true'
   }
 
   getProviders (): Provider[] {
