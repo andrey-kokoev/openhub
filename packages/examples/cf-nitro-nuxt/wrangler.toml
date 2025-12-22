@@ -1,22 +1,22 @@
 name = "example-cf-nitro-nuxt"
-compatibility_date = "2025-06-01"
-pages_build_output_dir = "dist/"
+compatibility_date = "2025-12-22"
+main = ".output/server/index.mjs"
 
 # D1 Database
 [[d1_databases]]
 binding = "DB"
-database_name = "example-db"
-database_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" # Replace with your D1 database ID
-preview_database_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" # Replace with your same as database_id
+database_name = "openhub-examples-test-fixture"
+database_id = "2d4a9f67-35a1-46b1-90af-8e8d6d3d6abe" # Replace with your D1 database ID
+preview_database_id = "2d4a9f67-35a1-46b1-90af-8e8d6d3d6abe" # Replace with your same as database_id
 
 # KV Namespace
 [[kv_namespaces]]
 binding = "KV"
-id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" # Replace with your KV namespace ID
-preview_id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" # Replace with your same as id
+id = "ff3dc25b9cf54c5380a76332014bf35d" # Replace with your KV namespace ID
+preview_id = "ff3dc25b9cf54c5380a76332014bf35d" # Replace with your same as id
 
 # R2 Bucket
 [[r2_buckets]]
 binding = "BLOB"
-bucket_name = "example-bucket" # Replace with your R2 bucket name
-preview_bucket_name = "example-bucket" # Replace with your same as bucket_name
+bucket_name = "openhub-examples-test-fixture" # Replace with your R2 bucket name
+preview_bucket_name = "openhub-examples-test-fixture" # Replace with your same as bucket_name

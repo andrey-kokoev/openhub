@@ -10,7 +10,7 @@
     "prepare": "nuxt prepare",
     "build": "nuxt build",
     "preview": "nuxt preview",
-    "deploy": "wrangler pages deploy dist/",
+    "deploy": "wrangler deploy",
     "typecheck": "nuxt typecheck",
     "clean_install": "rm -rf node_modules dist .nuxt .output .wrangler && pnpm install"
   },

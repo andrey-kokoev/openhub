@@ -1,6 +1,7 @@
 import { defineNuxtConfig, type NuxtConfig } from 'nuxt/config'
 
 const nuxtConfigInput: NuxtConfig = {
+  srcDir: 'src',
   modules: [
     '@openhub2/metaframework-nuxt',
     '@nuxt/devtools'

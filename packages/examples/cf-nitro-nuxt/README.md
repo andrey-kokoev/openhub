@@ -31,7 +31,7 @@ pnpm dev
 
 ### Remote mode (real Cloudflare bindings)
 
-1. Deploy to Cloudflare Pages first:
+1. Deploy to Cloudflare Workers first:
    ```bash
    pnpm build
    pnpm deploy

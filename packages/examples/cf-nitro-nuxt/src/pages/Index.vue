@@ -15,6 +15,12 @@
 </template>
 
 <script setup lang="ts">
-const { data: users } = await useFetch('/api/users')
-const { data: session } = await useFetch('/api/session')
+interface User {
+  id: number
+  name: string
+  email: string
+}
+
+const { data: users } = await useFetch<User[]>('/api/users')
+const { data: session } = await useFetch<string>('/api/sessions')
 </script>

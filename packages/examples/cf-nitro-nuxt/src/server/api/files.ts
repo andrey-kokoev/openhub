@@ -4,7 +4,7 @@ export default defineEventHandler(async (event) => {
   if (event.method === 'GET') {
     // List files
     const list = await blob.list({ limit: 100 })
-    return list.objects.map((obj) => ({
+    return list.objects.map((obj: { key: string; size: number; uploaded: Date }) => ({
       key: obj.key,
       size: obj.size,
       uploaded: obj.uploaded,
