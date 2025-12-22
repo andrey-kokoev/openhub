@@ -31,8 +31,18 @@ export type AzurePlatformContext = {
   }
 }
 
+export type GoogleCloudPlatformContext = {
+  platform: 'google'
+  env: {
+    DB?: DatabaseBinding
+    KV?: KVBinding
+    BLOB?: BlobBinding
+  }
+}
+
 export type PlatformContext =
   | CloudflarePlatformContext
   | SupabasePlatformContext
   | AWSPlatformContext
   | AzurePlatformContext
+  | GoogleCloudPlatformContext
