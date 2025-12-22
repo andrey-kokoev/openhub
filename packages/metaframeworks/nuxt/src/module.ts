@@ -1,4 +1,4 @@
-import { defineNuxtModule, createResolver } from '@nuxt/kit'
+import { defineNuxtModule, createResolver, addTypeTemplate } from '@nuxt/kit'
 import { openhubModule as nitroModule } from '@openhub2/runtime-nitro'
 
 export interface ModuleOptions {
@@ -10,9 +10,7 @@ export default defineNuxtModule<ModuleOptions>({
   meta: {
     name: '@openhub2/metaframework-nuxt',
     configKey: 'openhub',
-    compatibility: {
-      nuxt: '^4.0.0'
-    }
+    compatibility: { nuxt: '^4.0.0' }
   },
   defaults: {
     remote: false
@@ -20,13 +18,31 @@ export default defineNuxtModule<ModuleOptions>({
   async setup (options, nuxt) {
     const resolver = createResolver(import.meta.url)
 
-    // Register Nitro runtime module via nitro:config hook
+    // ✅ Teach TS about `nuxt.config.ts -> openhub: {...}`
+    addTypeTemplate({
+      filename: 'types/openhub2-metaframework-nuxt.d.ts',
+      getContents: () => `
+import type { ModuleOptions } from '${resolver.resolve('./module')}'
+
+declare module '@nuxt/schema' {
+  interface NuxtConfig {
+    openhub?: ModuleOptions
+  }
+  interface NuxtOptions {
+    openhub?: ModuleOptions
+  }
+}
+
+export {}
+`.trim()
+    })
+
     nuxt.hook('nitro:config', (nitroConfig) => {
       nitroConfig.modules = nitroConfig.modules || []
       nitroConfig.modules.push(nitroModule)
     })
 
-    // Configure nitro for remote mode if needed
+    // Prefer runtimeConfig.public unless you intentionally want server-only
     // @ts-ignore
     nuxt.options.runtimeConfig.openhub = nuxt.options.runtimeConfig.openhub || {}
     // @ts-ignore
@@ -34,7 +50,6 @@ export default defineNuxtModule<ModuleOptions>({
     // @ts-ignore
     nuxt.options.runtimeConfig.openhub.provider = options.provider
 
-    // Add devtools integration if enabled
     if (nuxt.options.dev) {
       // @ts-ignore
       nuxt.hook('devtools:customTabs', (tabs) => {
@@ -42,10 +57,7 @@ export default defineNuxtModule<ModuleOptions>({
           name: 'openhub',
           title: 'OpenHub',
           icon: 'tabler:box',
-          view: {
-            type: 'iframe',
-            src: '/__openhub2/devtools'
-          }
+          view: { type: 'iframe', src: '/__openhub2/devtools' }
         })
       })
     }
