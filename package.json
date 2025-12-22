@@ -18,7 +18,8 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint .",
-    "prepare": "pnpm build"
+    "prepare": "pnpm build",
+    "sync_readme_mirrors": "node scripts/sync_readme_mirrors.mjs"
   },
   "devDependencies": {
     "@types/node": "^25.0.3",
