@@ -77,6 +77,10 @@ export default defineNitroPlugin((nitroApp) => {
 
         const extracted = provider.extractBindings(platformContext)
         bindings = { ...bindings, ...extracted }
+
+        // Register proxy handler for the remote worker
+        const handler = provider.createProxyHandler(extracted)
+        runtime.registerProxyEndpoint(handler)
       }
     }
 

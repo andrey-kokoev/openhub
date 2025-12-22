@@ -1,16 +1,15 @@
 {
-  "name": "example-cf-nitro-nuxt",
-  "version": "0.0.0",
-  "private": true,
+  "name": "openhub-examples-test-fixture",
+  "version": "0.0.1",
   "description": "Example: Nuxt + Nitro + Cloudflare with OpenHub remote bindings",
   "type": "module",
   "scripts": {
     "dev": "nuxt dev",
-    "dev:remote": "nuxt dev --remote",
+    "dev:remote": "nuxt dev --remote",    
     "prepare": "nuxt prepare",
     "build": "nuxt build",
-    "preview": "nuxt preview",
     "deploy": "wrangler deploy",
+    "preview": "nuxt preview",
     "db:migrate": "wrangler d1 execute openhub-examples-test-fixture --remote --file=./migrations/0001_create_users.sql",
     "db:migrate:local": "wrangler d1 execute openhub-examples-test-fixture --local --file=./migrations/0001_create_users.sql",
     "typecheck": "nuxt typecheck",
@@ -26,5 +25,8 @@
   },
   "devDependencies": {
     "wrangler": "^4.56.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

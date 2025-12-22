@@ -16,27 +16,8 @@ export const cloudflareProvider: Provider = {
     }
   },
 
-  createProxyHandler () {
-    // This will be called in a runtime to handle proxy requests.
-    // It needs real bindings, which are usually injected by the runtime using extractBindings first.
-    // However, the Dharma Provider interface expects createProxyHandler to return a handler.
-    // In practice, the runtime will pass the extracted bindings to createProxyHandler if it needs them.
-    // Wait, let's re-check ProviderFactory in Dharma.
-
-    // ProviderFactory:
-    // createProxyHandler (): ProxyHandler
-
-    // If the handler needs bindings, it must get them from somewhere.
-    // Usually, the runtime extracts bindings and then sets up the proxy handler.
-
-    return {
-      async handle (request) {
-        // This is a bit of a chicken-and-egg problem in the type definition if the handler isn't passed bindings.
-        // But the Runtime implementation (e.g., Nitro) will handle this.
-        // For now, we'll implement a factory that can be initialized.
-        throw new Error('Proxy handler must be initialized with bindings via the runtime')
-      }
-    }
+  createProxyHandler (bindings: Bindings) {
+    return createProxyHandler(bindings)
   },
 
   extractBindings (platformContext: PlatformContext): Bindings {

@@ -16,7 +16,7 @@ export type ProviderDefinition = {
 
 export type ProviderFactory = {
   createLocalBindings (transport: ProxyTransport): Bindings
-  createProxyHandler (): ProxyHandler
+  createProxyHandler (bindings: Bindings): ProxyHandler
   extractBindings (platformContext: PlatformContext): Bindings
 }
 

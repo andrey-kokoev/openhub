@@ -16,12 +16,8 @@ export const supabaseProvider: Provider = {
     }
   },
 
-  createProxyHandler () {
-    return {
-      async handle (request) {
-        throw new Error('Proxy handler must be initialized with bindings via the runtime')
-      }
-    }
+  createProxyHandler (bindings: Bindings) {
+    return createProxyHandler(bindings)
   },
 
   extractBindings (platformContext: PlatformContext): Bindings {
