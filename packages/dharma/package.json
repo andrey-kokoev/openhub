@@ -23,7 +23,8 @@
   ],
   "scripts": {
     "build": "tsc",
-    "test:types": "tsc --noEmit -p types/tests/tsconfig.json"
+    "test:types": "tsc --noEmit -p types/tests/tsconfig.json",
+    "clean_install": "rm -rf node_modules dist && pnpm install"
   },
   "devDependencies": {
     "expect-type": "^1.3.0",

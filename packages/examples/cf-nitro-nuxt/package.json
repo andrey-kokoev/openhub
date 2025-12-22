@@ -11,7 +11,8 @@
     "build": "nuxt build",
     "preview": "nuxt preview",
     "deploy": "wrangler pages deploy dist/",
-    "typecheck": "nuxt typecheck"
+    "typecheck": "nuxt typecheck",
+    "clean_install": "rm -rf node_modules dist .nuxt .output .wrangler && pnpm install"
   },
   "dependencies": {
     "@openhub2/metaframework-nuxt": "workspace:*",
