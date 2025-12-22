@@ -3,16 +3,25 @@
 OpenHub integration for Nuxt. Enables `nuxt dev --remote` against real cloud bindings.
 
 ## Installation
+
 ```bash
 pnpm add @openhub2/metaframework-nuxt
 ```
 
-## Peer Dependencies
+Then add a provider:
+
 ```bash
-pnpm add @openhub2/dharma @openhub2/runtime-nitro @openhub2/provider-cloudflare
+pnpm add @openhub2/provider-cloudflare
+```
+
+Requires `nuxt` as a peer:
+
+```bash
+pnpm add nuxt
 ```
 
 ## Usage
+
 ```typescript
 // nuxt.config.ts
 export default defineNuxtConfig({
@@ -25,6 +34,7 @@ export default defineNuxtConfig({
 ```
 
 ## CLI
+
 ```bash
 # Run dev server with remote bindings
 nuxt dev --remote
@@ -42,10 +52,11 @@ nuxt dev --remote=preview
 | `remote` | `boolean \| 'production' \| 'preview'` | `false` | Enable remote mode |
 
 ## Environment Variables
-```bash
-OPENHUB_REMOTE_URL=https://your-app.pages.dev
-OPENHUB_REMOTE_SECRET=your-shared-secret
-```
+
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `OPENHUB_REMOTE_URL` | In remote mode | Deployed worker URL |
+| `OPENHUB_REMOTE_SECRET` | In remote mode | Shared auth secret |
 
 ## How It Works
 
@@ -62,6 +73,10 @@ OpenHub adds a panel to Nuxt Devtools showing:
 - Connected provider
 - Available bindings
 - Proxy endpoint status
+
+## What's Included
+
+This package includes `@openhub2/runtime-nitro` and `@openhub2/dharma` as dependencies. You only need to install a provider separately.
 
 ## License
 

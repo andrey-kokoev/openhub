@@ -3,18 +3,21 @@
 OpenHub runtime integration for Nitro. Manages bindings and exposes proxy endpoint.
 
 ## Installation
+
 ```bash
 pnpm add @openhub2/runtime-nitro
 ```
 
-## Peer Dependencies
+Requires `nitropack` as a peer:
+
 ```bash
-pnpm add @openhub2/dharma
+pnpm add nitropack
 ```
 
 ## Usage
 
 ### As Nitro Module
+
 ```typescript
 // nitro.config.ts
 import { openhubModule } from '@openhub2/runtime-nitro'
@@ -25,6 +28,7 @@ export default defineNitroConfig({
 ```
 
 ### Programmatic
+
 ```typescript
 import { createRuntime } from '@openhub2/runtime-nitro'
 import { cloudflareProvider } from '@openhub2/provider-cloudflare'
@@ -48,6 +52,7 @@ In production, exposes `/__openhub2/proxy` that:
 - Parses `ProxyRequest` from body
 - Executes against real bindings
 - Returns `ProxyResponse`
+
 ```typescript
 // Request
 POST /__openhub2/proxy
@@ -68,6 +73,7 @@ x-openhub-secret: your-secret
 ## Context Injection
 
 Bindings available in handlers:
+
 ```typescript
 export default defineEventHandler((event) => {
   const { database, kv, blob } = event.context.openhub.bindings
@@ -80,11 +86,12 @@ export default defineEventHandler((event) => {
 ```
 
 ## Environment Variables
-```bash
-OPENHUB_REMOTE=true
-OPENHUB_REMOTE_URL=https://your-app.pages.dev
-OPENHUB_REMOTE_SECRET=your-shared-secret
-```
+
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `OPENHUB_REMOTE` | No | Enable remote mode (`true`/`false`) |
+| `OPENHUB_REMOTE_URL` | In remote mode | Deployed worker URL |
+| `OPENHUB_REMOTE_SECRET` | In remote mode | Shared auth secret |
 
 ## License
 

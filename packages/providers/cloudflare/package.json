@@ -19,7 +19,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@openhub2/dharma": "0.0.4"
+    "@openhub2/dharma": "workspace:*"
   },
   "devDependencies": {
     "tsup": "^8.5.1",

@@ -14,24 +14,24 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup",
+    "build": "tsup src/index.ts --format esm --dts",
     "test": "vitest",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@openhub2/dharma": "0.0.5",
-    "h3": "2.0.1-rc.6",
+    "@openhub2/dharma": "workspace:*",
+    "h3": "1.15.4",
     "pathe": "^2.0.3"
   },
   "peerDependencies": {
-    "nitropack": "^2.0.0"
+    "nitropack": "^2.12.9"
   },
   "devDependencies": {
     "@types/node": "^25.0.3",
-    "nitropack": "^2.0.0",
-    "tsup": "^8.0.0",
-    "typescript": "^5.7.0",
-    "vitest": "^4.0.0"
+    "nitropack": "^2.12.9",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.16"
   },
   "publishConfig": {
     "access": "public"

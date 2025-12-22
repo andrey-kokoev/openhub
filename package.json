@@ -1,0 +1,33 @@
+{
+  "name": "openhub",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Universal cloud bindings for TypeScript runtimes",
+  "license": "Apache-2.0",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/openhub2/openhub.git"
+  },
+  "scripts": {
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "typecheck": "pnpm -r typecheck",
+    "clean": "pnpm -r exec rm -rf dist node_modules",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint .",
+    "prepare": "pnpm build"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.3",
+    "eslint": "^9.28.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.9.3"
+  },
+  "packageManager": "pnpm@10.12.1",
+  "engines": {
+    "node": ">=22",
+    "pnpm": ">=10"
+  }
+}
