@@ -43,17 +43,17 @@ importers:
   packages/providers/cloudflare:
     dependencies:
       '@openhub2/dharma':
-        specifier: latest
-        version: 0.0.2
+        specifier: 0.0.4
+        version: 0.0.4
     devDependencies:
       tsup:
-        specifier: ^8.0.0
+        specifier: ^8.5.1
         version: 8.5.1(jiti@2.6.1)(postcss@8.5.6)(typescript@5.9.3)(yaml@2.8.2)
       typescript:
-        specifier: ^5.7.0
+        specifier: ^5.9.3
         version: 5.9.3
       vitest:
-        specifier: ^4.0.0
+        specifier: ^4.0.16
         version: 4.0.16(@types/node@25.0.3)(jiti@2.6.1)(terser@5.44.1)(yaml@2.8.2)
 
   packages/runtimes/nitro:
@@ -672,8 +672,8 @@ packages:
       rolldown:
         optional: true
 
-  '@openhub2/dharma@0.0.2':
-    resolution: {integrity: sha512-re6aNBdbPhN7L5Z2VAmzr2PrUKAxW3cuju4iJ79VHfOmd/mMtozzD7zQZBR0G9F88dCQZLWRBYJ7ykKoqKKEtQ==}
+  '@openhub2/dharma@0.0.4':
+    resolution: {integrity: sha512-mD6aHrU2MGD6+m3sNac8xNful7ZUOUNxrG08zUBymvpN7AlJE43n8n4l1mxX0A6fTfdI4L96IPcC/4E3vYguaQ==}
 
   '@oxc-minify/binding-android-arm64@0.102.0':
     resolution: {integrity: sha512-pknM+ttJTwRr7ezn1v5K+o2P4RRjLAzKI10bjVDPybwWQ544AZW6jxm7/YDgF2yUbWEV9o7cAQPkIUOmCiW8vg==}
@@ -4303,7 +4303,7 @@ snapshots:
       - vue-tsc
       - yaml
 
-  '@openhub2/dharma@0.0.2': {}
+  '@openhub2/dharma@0.0.4': {}
 
   '@oxc-minify/binding-android-arm64@0.102.0':
     optional: true
