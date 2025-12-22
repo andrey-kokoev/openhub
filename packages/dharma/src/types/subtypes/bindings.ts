@@ -60,11 +60,14 @@ export type BlobListResult = {
   truncated: boolean
 }
 
+export type BlobPutOptions = Record<string, unknown>
+
 export type BlobBinding = {
   get (key: string): Promise<Blob | null>
-  put (key: string, value: Blob | ArrayBuffer | ReadableStream): Promise<void>
+  put (key: string, value: Blob | ArrayBuffer | ReadableStream, options?: BlobPutOptions): Promise<void>
   delete (key: string): Promise<void>
   list (options?: BlobListOptions): Promise<BlobListResult>
+  head?: (key: string) => Promise<unknown | null>
 }
 
 export type Bindings = {

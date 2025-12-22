@@ -4,6 +4,7 @@ export class HonoRuntime implements Runtime {
   name = 'hono'
   private providers: Provider[] = []
   private proxyHandler?: ProxyHandler
+  private remoteModeOverride: boolean | undefined
 
   registerProvider (provider: Provider): void {
     this.providers.push(provider)
@@ -23,7 +24,14 @@ export class HonoRuntime implements Runtime {
     }
   }
 
+  setRemoteMode (isRemote: boolean): void {
+    this.remoteModeOverride = isRemote
+  }
+
   isRemoteMode (): boolean {
+    if (this.remoteModeOverride !== undefined) {
+      return this.remoteModeOverride
+    }
     return process.env.OPENHUB_REMOTE === 'true'
   }
 

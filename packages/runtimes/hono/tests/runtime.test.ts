@@ -32,17 +32,29 @@ describe('HonoRuntime', () => {
     expect(runtime.getProxyHandler()).toBe(mockHandler)
   })
 
-  it('should inject bindings into context', () => {
+  it('should inject bindings into context (merge semantics)', () => {
     const runtime = createRuntime()
-    const context: any = {}
-    const bindings = { database: {}, kv: {}, blob: {} }
+    const existingDatabase = { existing: true }
+    const kvBinding = { get: async () => null }
+    const context: any = { openhub: { bindings: { database: existingDatabase } } }
 
-    runtime.injectBindings(context, bindings)
+    runtime.injectBindings(context, { kv: kvBinding as any })
+
     expect(context.openhub).toBeDefined()
-    expect(context.openhub.bindings).toEqual(bindings)
+    expect(context.openhub.bindings).toEqual({
+      database: existingDatabase,
+      kv: kvBinding,
+    })
   })
 
-  it('should detect remote mode from environment', () => {
+  it('should detect remote mode from setRemoteMode override', () => {
+    const runtime = createRuntime()
+    process.env.OPENHUB_REMOTE = 'false'
+    runtime.setRemoteMode(true)
+    expect(runtime.isRemoteMode()).toBe(true)
+  })
+
+  it('should detect remote mode from environment when not overridden', () => {
     const runtime = createRuntime()
     const originalValue = process.env.OPENHUB_REMOTE
 

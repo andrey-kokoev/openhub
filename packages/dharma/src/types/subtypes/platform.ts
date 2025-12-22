@@ -6,6 +6,8 @@ export type CloudflarePlatformContext = {
     DB?: DatabaseBinding
     KV?: KVBinding
     BLOB?: BlobBinding
+    /** Legacy/alternate R2 bucket binding name used by some apps. */
+    R2?: BlobBinding
   }
 }
 

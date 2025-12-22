@@ -9,6 +9,8 @@ export function extractBindings (context: PlatformContext): Bindings {
   return {
     database: cfContext.env.DB,
     kv: cfContext.env.KV,
-    blob: cfContext.env.BLOB,
+    // Prefer the canonical OpenHub binding name `BLOB` (R2 bucket),
+    // but accept existing apps that still bind R2 as `R2`.
+    blob: cfContext.env.BLOB ?? cfContext.env.R2,
   }
 }
