@@ -1,5 +1,5 @@
 {
-  "name": "openhub-examples-test-fixture",
+  "name": "@openhub2/example-cf-nitro-nuxt",
   "version": "0.0.1",
   "description": "Example: Nuxt + Nitro + Cloudflare with OpenHub remote bindings",
   "type": "module",
