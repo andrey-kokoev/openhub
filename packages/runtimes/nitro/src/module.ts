@@ -21,7 +21,6 @@ export const openhubModule = (nitro: Nitro) => {
   nitro.options.plugins.push(join(__dirname, 'src/plugin/bindings.ts'))
 
   // Inject runtime into nitro context for internal use
-  nitro.options.runtimeConfig.openhub = {
-    runtime
-  }
+  nitro.options.runtimeConfig.openhub = nitro.options.runtimeConfig.openhub || {}
+  nitro.options.runtimeConfig.openhub.runtime = runtime
 }
