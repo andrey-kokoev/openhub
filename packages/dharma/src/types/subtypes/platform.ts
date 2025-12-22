@@ -15,6 +15,11 @@ export type SupabasePlatformContext = {
 
 export type AWSPlatformContext = {
   platform: 'aws'
+  env: {
+    RDS?: DatabaseBinding
+    DYNAMODB?: KVBinding
+    S3?: BlobBinding
+  }
 }
 
 export type AzurePlatformContext = {
