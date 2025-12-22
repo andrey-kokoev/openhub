@@ -1,0 +1,26 @@
+{
+  "name": "example-cf-nitro-nuxt",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Example: Nuxt + Nitro + Cloudflare with OpenHub remote bindings",
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev",
+    "dev:remote": "nuxt dev --remote",
+    "prepare": "nuxt prepare",
+    "build": "nuxt build",
+    "preview": "nuxt preview",
+    "deploy": "wrangler pages deploy dist/",
+    "typecheck": "nuxt typecheck"
+  },
+  "dependencies": {
+    "@openhub2/metaframework-nuxt": "workspace:*",
+    "@openhub2/provider-cloudflare": "workspace:*",
+    "nuxt": "^4.2.2",
+    "vue": "^3.5.26",
+    "@nuxt/kit": "^4.2.2"
+  },
+  "devDependencies": {
+    "wrangler": "^4.56.0"
+  }
+}
