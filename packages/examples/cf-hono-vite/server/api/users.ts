@@ -7,6 +7,10 @@ const app = new Hono()
 app.get('/', async (c) => {
   const { database } = getBindings(c)
   
+  if (!database) {
+    return c.json({ error: 'Database not available' }, 500)
+  }
+  
   const stmt = database.prepare('SELECT id, name, email FROM users ORDER BY id DESC LIMIT 10')
   const { results } = await stmt.all()
   
@@ -16,6 +20,11 @@ app.get('/', async (c) => {
 // POST /api/users - Create user
 app.post('/', async (c) => {
   const { database } = getBindings(c)
+  
+  if (!database) {
+    return c.json({ error: 'Database not available' }, 500)
+  }
+  
   const body = await c.req.json()
   const { name, email } = body
   
@@ -27,7 +36,7 @@ app.post('/', async (c) => {
   const result = await stmt.bind(name, email).run()
   
   return c.json({
-    id: result.meta.last_row_id,
+    id: (result as any).meta?.last_row_id,
     name,
     email
   })

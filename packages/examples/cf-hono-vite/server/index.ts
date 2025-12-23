@@ -1,5 +1,5 @@
 import { Hono } from 'hono'
-import { createRuntime, openhubMiddleware, getBindings } from '@openhub2/runtime-hono'
+import { createRuntime, openhubMiddleware } from '@openhub2/runtime-hono'
 import { cloudflareProvider } from '@openhub2/provider-cloudflare'
 
 // Define the Cloudflare environment type
@@ -27,9 +27,9 @@ app.use('*', async (c, next) => {
   if (isRemote) {
     // In remote mode, create proxy bindings
     const transport = {
-      async send(request: any) {
-        const remoteUrl = process.env.OPENHUB_REMOTE_URL || ''
-        const remoteSecret = process.env.OPENHUB_REMOTE_SECRET || ''
+      async send(request: any): Promise<any> {
+        const remoteUrl = (typeof process !== 'undefined' && process.env?.OPENHUB_REMOTE_URL) || ''
+        const remoteSecret = (typeof process !== 'undefined' && process.env?.OPENHUB_REMOTE_SECRET) || ''
         
         const response = await fetch(`${remoteUrl}/__openhub2/proxy`, {
           method: 'POST',
@@ -46,7 +46,7 @@ app.use('*', async (c, next) => {
     bindings = cloudflareProvider.createLocalBindings(transport)
   } else {
     // Extract real bindings from Cloudflare environment
-    bindings = cloudflareProvider.extractBindings(env)
+    bindings = cloudflareProvider.extractBindings(env as any)
   }
   
   // Inject bindings using middleware
@@ -69,7 +69,8 @@ app.post('/__openhub2/proxy', async (c) => {
     return c.json({ success: false, error: 'Unauthorized' }, 401)
   }
   
-  const response = await proxyHandler(request, c.env)
+  // ProxyHandler is defined as (request, context) => Promise<ProxyResponse>
+  const response = await (proxyHandler as any)(request, c.env)
   return c.json(response)
 })
 

@@ -7,8 +7,12 @@ const app = new Hono()
 app.get('/', async (c) => {
   const { blob } = getBindings(c)
   
+  if (!blob) {
+    return c.json({ error: 'Blob storage not available' }, 500)
+  }
+  
   const list = await blob.list({ limit: 100 })
-  const files = list.objects.map((obj: { key: string; size: number; uploaded: Date }) => ({
+  const files = list.objects.map((obj: any) => ({
     key: obj.key,
     size: obj.size,
     uploaded: obj.uploaded,
@@ -20,6 +24,10 @@ app.get('/', async (c) => {
 // POST /api/files - Upload file
 app.post('/', async (c) => {
   const { blob } = getBindings(c)
+  
+  if (!blob) {
+    return c.json({ error: 'Blob storage not available' }, 500)
+  }
   
   const formData = await c.req.formData()
   const file = formData.get('file') as File

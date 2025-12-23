@@ -8,6 +8,10 @@ const app = new Hono()
 app.get('/', async (c) => {
   const { kv } = getBindings(c)
   
+  if (!kv) {
+    return c.json({ error: 'KV not available' }, 500)
+  }
+  
   // Get or create session
   const sessionId = getCookie(c, 'session_id') || crypto.randomUUID()
   

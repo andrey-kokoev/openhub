@@ -20,7 +20,7 @@
     "noFallthroughCasesInSwitch": true,
     
     /* Cloudflare Workers types */
-    "types": ["@cloudflare/workers-types"]
+    "types": ["@cloudflare/workers-types", "@types/node"]
   },
   "include": ["client/**/*", "server/**/*"],
   "exclude": ["node_modules", "dist", ".wrangler"]
