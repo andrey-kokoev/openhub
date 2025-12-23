@@ -1,0 +1,26 @@
+# Build outputs
+.output/
+dist/
+
+# Dependencies
+node_modules/
+
+# Environment
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Wrangler
+.wrangler/
+
+# Test results
+test-results/
+
+# Nitro
+.nitro/
