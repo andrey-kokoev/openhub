@@ -1,8 +1,9 @@
 import { defineEventHandler, getQuery, getRequestHeader } from 'h3'
 import { injectBindings } from '../context/inject'
 import runtime from '../context/runtime'
+import { H3HttpTransport } from '../transport/http'
 import type { H3Event } from 'h3'
-import type { Bindings } from '@openhub2/dharma'
+import type { Bindings, PlatformContext } from '@openhub2/dharma'
 
 export default defineEventHandler(async (event: H3Event) => {
   // Check if we're in remote mode
@@ -15,10 +16,7 @@ export default defineEventHandler(async (event: H3Event) => {
     const secret = process.env.OPENHUB_REMOTE_SECRET || ''
 
     // Create transport object
-    const transport = {
-      url: `${url.replace(/\/$/, '')}/__openhub2/proxy`,
-      secret
-    }
+    const transport = new H3HttpTransport(url, secret)
 
     let allBindings: Bindings = {}
 
@@ -38,9 +36,9 @@ export default defineEventHandler(async (event: H3Event) => {
     // In local mode, extract bindings from the platform environment
     // Access the platform environment from the request
     const platformContext = {
-      platform: 'h3',
-      env: event.node?.req?.env || {} // Use the environment from the request
-    }
+      platform: 'cloudflare',
+      env: (event.node?.req as any)?.env || (event.context as any)?.cloudflare?.env || {}
+    } as PlatformContext
 
     let allBindings: Bindings = {}
 

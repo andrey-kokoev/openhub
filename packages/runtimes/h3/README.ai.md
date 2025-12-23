@@ -69,6 +69,23 @@ app.use('/api/users', eventHandler(async (event) => {
 }))
 ```
 
+### Remote Mode with Proxy Endpoint
+
+When running in remote mode, the runtime can proxy requests to remote services:
+
+```typescript
+import { createApp } from 'h3'
+import { bindingsMiddleware } from '@openhub2/runtime-h3'
+
+const app = createApp()
+
+// Apply bindings middleware to automatically handle local/remote mode
+app.use(bindingsMiddleware)
+
+// The proxy endpoint is automatically available at /__openhub2/proxy
+// when using remote mode with appropriate secrets
+```
+
 ### Programmatic
 
 ```typescript
@@ -82,13 +99,37 @@ runtime.registerProvider(cloudflareProvider)
 ## What It Does
 
 1. **Registers provider** — accepts any Dharma-conforming provider
-2. **Provides middleware** — `createOpenhubMiddleware` injects bindings into H3 event context
+2. **Provides middleware** — `createOpenhubMiddleware` and `bindingsMiddleware` inject bindings into H3 event context
 3. **Context injection** — bindings available via `event.context.openhub.bindings`
 4. **Detects remote mode** — via environment or config
+5. **Proxy endpoint** — `/__openhub2/proxy` for remote mode communication
+6. **Transport layer** — HTTP transport for remote communication
+
+## Modules
+
+The H3 runtime is organized into several modules:
+
+### Runtime
+Core runtime functionality for managing providers and bindings.
+
+### Middleware
+Context injection and binding management utilities.
+
+### Context
+Runtime context management and binding injection.
+
+### Plugin
+Bindings middleware that handles local/remote mode switching.
+
+### Transport
+HTTP transport for remote communication with proxy endpoints.
+
+### Endpoint
+Proxy endpoint implementation for remote mode.
 
 ## Middleware
 
-The H3 runtime provides two ways to inject bindings:
+The H3 runtime provides several ways to inject bindings:
 
 ### Event Handler Wrapper
 
@@ -101,12 +142,21 @@ app.use('/api/data', openhubEventHandler(bindings, eventHandler(async (event) =>
 })))
 ```
 
+### Bindings Middleware (Auto-configures Local/Remote)
+
+```typescript
+import { bindingsMiddleware } from '@openhub2/runtime-h3'
+
+// Apply middleware that automatically handles local/remote mode
+app.use(bindingsMiddleware)
+```
+
 ### Middleware Factory
 
 ```typescript
 import { createOpenhubMiddleware, getBindings } from '@openhub2/runtime-h3'
 
-// Apply middleware
+// Apply middleware with specific bindings
 app.use(createOpenhubMiddleware(bindings))
 
 // Access bindings in handlers
@@ -124,16 +174,29 @@ Bindings are available in event handlers via H3's event context:
 app.use('/api/users', eventHandler(async (event) => {
   // Direct access
   const { database, kv, blob } = event.context.openhub.bindings
-  
+
   // Or use helper
   const bindings = getBindings(event)
-  
+
   const stmt = database.prepare('SELECT * FROM users')
   const users = await stmt.all()
-  
+
   return users
 }))
 ```
+
+## Remote Mode
+
+The runtime supports remote mode where bindings are handled via HTTP proxy:
+
+```typescript
+// Enable remote mode
+process.env.OPENHUB_REMOTE = 'true'
+process.env.OPENHUB_REMOTE_URL = 'https://my-worker.example.com'
+process.env.OPENHUB_REMOTE_SECRET = 'shared-secret'
+```
+
+In remote mode, the runtime creates local bindings that communicate with remote services via the proxy endpoint.
 
 ## Environment Variables
 
@@ -141,7 +204,7 @@ app.use('/api/users', eventHandler(async (event) => {
 |----------|----------|-------------|
 | `OPENHUB_REMOTE` | No | Enable remote mode (`true`/`false`) |
 | `OPENHUB_REMOTE_URL` | In remote mode | Deployed worker URL |
-| `OPENHUB_REMOTE_SECRET` | In remote mode | Shared auth secret |
+| `OPENHUB_REMOTE_SECRET` | In remote mode | Shared auth secret for proxy endpoint |
 
 ## License
 
