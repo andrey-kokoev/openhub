@@ -4,6 +4,7 @@ import { openhubModule } from '@openhub2/runtime-nitro'
 export default defineNitroConfig({
   preset: "cloudflare-module",
   srcDir: 'server',
+  compatibilityDate: "2025-12-23",
   cloudflare: {
     deployConfig: true,
     nodeCompat: true,

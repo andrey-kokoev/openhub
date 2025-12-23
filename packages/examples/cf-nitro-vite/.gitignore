@@ -16,4 +16,8 @@ node_modules/
 # Logs
 *.log
 
+# Wrangler
 .wrangler/
+
+# Test results
+test-results/
