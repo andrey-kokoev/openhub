@@ -21,3 +21,6 @@ node_modules/
 
 # Test results
 test-results/
+
+# Nitro
+.nitro/
