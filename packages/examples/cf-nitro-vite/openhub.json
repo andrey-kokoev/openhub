@@ -1,0 +1,4 @@
+{
+  "provider": "@openhub2/provider-cloudflare",
+  "remote": false
+}

@@ -86,6 +86,7 @@ Metaframeworks and runtimes don't depend on providers. Users choose and install 
 | Example | Description |
 |---------|-------------|
 | [cf-nitro-nuxt](./examples/cf-nitro-nuxt/) | Nuxt + Nitro + Cloudflare (D1, KV, R2) |
+| [cf-nitro-vite](./examples/cf-nitro-vite/) | Vite + Nitro + Cloudflare (D1, KV, R2) - Standalone |
 
 ## Quick Start
 
