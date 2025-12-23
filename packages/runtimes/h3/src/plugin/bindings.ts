@@ -1,4 +1,4 @@
-import { defineEventHandler, getQuery, getRequestHeader } from 'h3'
+import { defineEventHandler } from 'h3'
 import { injectBindings } from '../context/inject'
 import runtime from '../context/runtime'
 import { H3HttpTransport } from '../transport/http'
