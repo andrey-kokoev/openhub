@@ -1,10 +1,16 @@
 {
-	"folders": [
+  "folders": [
     {
       "path": "."
     },
     {
       "path": "../smart-scheduling"
+    },
+    {
+      "path": "../gagara-ui"
+    },
+    {
+      "path": "../gagara-boost-tsclient"
     }
   ],
   "settings": {}
