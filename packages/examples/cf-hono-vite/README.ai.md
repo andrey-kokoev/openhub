@@ -159,15 +159,57 @@ app.use('*', openhubMiddleware(bindings))
 
 ### Unit Tests
 
+Unit tests verify the build process, deployment, and API endpoint functionality.
+
 ```bash
 pnpm test:unit
 ```
 
+**Test Coverage:**
+- Build and deployment verification
+- Type checking
+- API endpoint testing (when remote URL is accessible):
+  - Health check endpoint (`/__health`)
+  - Users API (D1 Database):
+    - GET /api/users - List users
+    - POST /api/users - Create user
+    - Error handling for invalid requests
+  - Sessions API (KV Store):
+    - GET /api/sessions - Get/create session
+    - Session cookie handling
+    - Session persistence
+  - Files API (R2 Blob Storage):
+    - GET /api/files - List files
+    - POST /api/files - Upload file
+    - Error handling for missing file
+
+**Note:** API endpoint tests require a deployed instance. Set `OPENHUB_TEST_URL` environment variable to test against a specific deployment:
+
+```bash
+OPENHUB_TEST_URL=https://your-app.workers.dev pnpm test:unit
+```
+
 ### E2E Tests
+
+E2E tests verify the full application workflow including frontend and backend integration.
 
 ```bash
 pnpm test:e2e
 ```
+
+**Test Coverage:**
+- Frontend page loading and error detection
+- API integration tests for all endpoints
+- Dev server functionality (local and remote modes)
+- Deployment verification
+
+### Running All Tests
+
+```bash
+pnpm test
+```
+
+This runs both unit and E2E tests sequentially.
 
 ## License
 
