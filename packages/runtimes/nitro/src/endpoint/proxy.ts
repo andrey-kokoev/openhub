@@ -1,7 +1,7 @@
 import { defineEventHandler, readBody, getHeader, createError } from 'h3'
 import { useRuntimeConfig } from 'nitropack/runtime'
 import type { H3Event } from 'h3'
-import type { ProxyRequest } from '@openhub2/dharma'
+import type { ProxyRequest } from '@openhub2/types'
 import runtime from '../context/runtime'
 
 export default defineEventHandler(async (event: H3Event) => {

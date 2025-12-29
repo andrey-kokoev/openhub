@@ -1,4 +1,4 @@
-import type { Bindings, PlatformContext, CloudflarePlatformContext } from '@openhub2/dharma'
+import type { Bindings, PlatformContext, CloudflarePlatformContext } from '@openhub2/types'
 
 export function extractBindings (context: PlatformContext): Bindings {
   if (context.platform !== 'cloudflare') {

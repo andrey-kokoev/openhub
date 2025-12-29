@@ -6,5 +6,5 @@ export default defineConfig({
   dts: {
     resolve: false
   },
-  external: ['@openhub2/dharma']
+  external: ['@openhub2/types']
 })

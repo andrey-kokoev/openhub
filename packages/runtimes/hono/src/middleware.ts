@@ -1,5 +1,5 @@
 import type { MiddlewareHandler } from 'hono'
-import type { Bindings } from '@openhub2/dharma'
+import type { Bindings } from '@openhub2/types'
 
 /**
  * Hono middleware to inject OpenHub bindings into the context

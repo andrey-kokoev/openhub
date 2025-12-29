@@ -1,4 +1,4 @@
-import type { ConfigSchema } from '@openhub2/dharma'
+import type { ConfigSchema } from '@openhub2/types'
 
 export const schema: ConfigSchema = {
   properties: {

@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import type { Provider } from '@openhub2/dharma'
+import type { Provider } from '@openhub2/types'
 
 describe('context/runtime', () => {
   beforeEach(() => {

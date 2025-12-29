@@ -81,7 +81,7 @@ runtime.registerProvider(cloudflareProvider)
 
 ## What It Does
 
-1. **Registers provider** — accepts any Dharma-conforming provider
+1. **Registers provider** — accepts any type system-conforming provider
 2. **Provides middleware** — `createOpenhubMiddleware` injects bindings into H3 event context
 3. **Context injection** — bindings available via `event.context.openhub.bindings`
 4. **Detects remote mode** — via environment or config

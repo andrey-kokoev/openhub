@@ -1,5 +1,5 @@
 {
-  "name": "@openhub2/dharma",
+  "name": "@openhub2/types",
   "version": "0.0.7",
   "description": "Type constraints for the OpenHub ecosystem",
   "license": "Apache-2.0",

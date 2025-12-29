@@ -1,5 +1,5 @@
 import { H3Runtime } from '../runtime'
-import type { Provider } from '@openhub2/dharma'
+import type { Provider } from '@openhub2/types'
 
 // Create a global runtime instance
 const runtime = new H3Runtime()

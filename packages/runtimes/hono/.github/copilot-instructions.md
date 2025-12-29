@@ -56,7 +56,7 @@ runtime.registerProvider(cloudflareProvider)
 
 ## What It Does
 
-1. **Registers provider** — accepts any Dharma-conforming provider
+1. **Registers provider** — accepts any the type system-conforming provider
 2. **Provides middleware** — `openhubMiddleware` injects bindings into Hono context
 3. **Context injection** — bindings available via `c.get('openhub').bindings`
 4. **Detects remote mode** — via environment or config

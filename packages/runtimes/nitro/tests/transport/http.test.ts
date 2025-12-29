@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { NitroHttpTransport } from '../../src/transport/http'
-import type { ProxyRequest } from '@openhub2/dharma'
+import type { ProxyRequest } from '@openhub2/types'
 
 describe('NitroHttpTransport', () => {
   const originalFetch = globalThis.fetch
