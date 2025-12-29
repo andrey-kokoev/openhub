@@ -7,7 +7,7 @@ We, the developers who depend on open infrastructure, in order to preserve the c
 ## Article I: Type System
 
 ### Section 1: Supremacy
-The type system is the supreme type system of OpenHub. All Providers, Runtimes, and Metaframeworks must conform to the type system. Any implementation inconsistent with The type system is invalid.
+The type system is supreme for OpenHub. All Providers, Runtimes, and Metaframeworks must conform to it. Any implementation inconsistent with the type system is invalid.
 
 ### Section 2: Scope
 The type system defines:
@@ -88,7 +88,7 @@ No amendment shall break existing conforming implementations without major versi
 ## Article VI: Interoperability
 
 ### Section 1: Substitutability
-Any Provider conforming to The type system shall work with any Runtime conforming to the type system. Any Runtime conforming to The type system shall work with any Metaframework conforming to the type system.
+Any Provider conforming to the type system shall work with any Runtime conforming to the type system. Any Runtime conforming to the type system shall work with any Metaframework conforming to the type system.
 
 ### Section 2: Certification
 An implementation may claim OpenHub conformance only if it passes the type system's type tests.

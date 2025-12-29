@@ -30,7 +30,7 @@ OpenHub lets you run `nuxt dev --remote` (or any supported metaframework) and ha
 
 ## Core Concepts
 
-### the type system (Type System)
+### Type System
 
 `@openhub2/types` is the type contract all layers must satisfy. It defines:
 
