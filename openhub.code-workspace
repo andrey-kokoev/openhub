@@ -8,6 +8,9 @@
     },
     {
       "path": "../gagara-boost-tsclient"
+    },
+    {
+      "path": "../gagara-boost"
     }
   ],
   "settings": {}
