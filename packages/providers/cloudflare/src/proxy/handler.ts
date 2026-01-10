@@ -56,10 +56,25 @@ export function createProxyHandler (bindings: Bindings): ProxyHandler {
             const result = await db.batch(statements)
             return { success: true, data: result }
           }
-          if (['all', 'first', 'run'].includes(method)) {
+          if (['all', 'first', 'run', 'raw'].includes(method)) {
             const [sql, bindArgs] = args as [string, unknown[]]
             const stmt = db.prepare(sql).bind(...bindArgs)
             const result = await (stmt as any)[method]()
+            return { success: true, data: result }
+          }
+          if (method === 'exec') {
+            const [sql] = args as [string]
+            if (typeof (db as any).exec !== 'function') {
+              return { success: false, error: 'Database.exec is not available' }
+            }
+            const result = await (db as any).exec(sql)
+            return { success: true, data: result }
+          }
+          if (method === 'dump') {
+            if (typeof (db as any).dump !== 'function') {
+              return { success: false, error: 'Database.dump is not available' }
+            }
+            const result = await (db as any).dump()
             return { success: true, data: result }
           }
         }

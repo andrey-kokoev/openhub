@@ -18,6 +18,20 @@ class CloudflarePreparedStatement implements PreparedStatement {
     return new CloudflarePreparedStatement(this.transport, this.sql, values)
   }
 
+  /**
+   * Cloudflare D1 supports `.raw()` to return array-mode results.
+   * Drizzle's D1 driver relies on this method.
+   */
+  async raw<T = unknown> (): Promise<T[]> {
+    const response = await this.transport.send({
+      binding: 'database',
+      method: 'raw',
+      args: [this.sql, this.args],
+    })
+    if (!response.success) throw new Error(response.error)
+    return response.data as T[]
+  }
+
   async all<T = unknown> (): Promise<QueryResult<T>> {
     const response = await this.transport.send({
       binding: 'database',
