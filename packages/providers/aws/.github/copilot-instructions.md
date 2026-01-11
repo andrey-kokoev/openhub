@@ -35,7 +35,7 @@ export default defineNuxtConfig({
 
 ## Supported Bindings
 
-| Binding | AWS Service | Dharma Type |
+| Binding | AWS Service | the type system Type |
 |---------|-------------|-------------|
 | database | RDS | `DatabaseBinding` |
 | kv | DynamoDB | `KVBinding` |

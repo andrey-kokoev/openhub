@@ -95,7 +95,7 @@ OpenHub adds a devtools panel accessible at `/__openhub2/devtools` showing:
 
 ## What's Included
 
-This package includes `@openhub2/runtime-nitro` and `@openhub2/dharma` as dependencies. You only need to install a provider separately.
+This package includes `@openhub2/runtime-nitro` and `@openhub2/types` as dependencies. You only need to install a provider separately.
 
 ## License
 

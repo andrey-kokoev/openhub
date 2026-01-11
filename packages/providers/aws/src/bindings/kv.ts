@@ -1,4 +1,4 @@
-import type { KVBinding, KVPutOptions, KVListOptions, KVListResult, ProxyTransport } from '@openhub2/dharma'
+import type { KVBinding, KVPutOptions, KVListOptions, KVListResult, ProxyTransport } from '@openhub2/types'
 
 export function createKVBinding (transport: ProxyTransport): KVBinding {
   return {

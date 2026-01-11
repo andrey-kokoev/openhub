@@ -20,7 +20,7 @@
     "clean_install": "rm -rf node_modules dist && pnpm install"
   },
   "dependencies": {
-    "@openhub2/dharma": "workspace:*"
+    "@openhub2/types": "workspace:*"
   },
   "devDependencies": {
     "tsup": "^8.5.1",

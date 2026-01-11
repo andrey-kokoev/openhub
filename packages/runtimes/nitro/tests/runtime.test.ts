@@ -1,6 +1,6 @@
 import { describe, it, expect, afterEach } from 'vitest'
 import { createRuntime, NitroRuntime } from '../src/runtime'
-import type { Provider, ProxyHandler, ProxyRequest } from '@openhub2/dharma'
+import type { Provider, ProxyHandler, ProxyRequest } from '@openhub2/types'
 
 describe('NitroRuntime', () => {
   const originalEnv = process.env.OPENHUB_REMOTE

@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { createRuntime } from '../../src/runtime'
-import type { Provider, Bindings, ProxyHandler } from '@openhub2/dharma'
+import type { Provider, Bindings, ProxyHandler } from '@openhub2/types'
 
 type NitroAppHarness = {
   nitroApp: any

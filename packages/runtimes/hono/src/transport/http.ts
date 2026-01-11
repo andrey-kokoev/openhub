@@ -1,4 +1,4 @@
-import type { ProxyRequest, ProxyResponse, HttpProxyTransport } from '@openhub2/dharma'
+import type { ProxyRequest, ProxyResponse, HttpProxyTransport } from '@openhub2/types'
 
 export class HonoHttpTransport implements HttpProxyTransport {
   constructor(public url: string, public secret: string) {

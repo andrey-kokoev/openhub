@@ -35,7 +35,7 @@ export default defineNuxtConfig({
 
 ## Supported Bindings
 
-| Binding | Cloudflare Service | Dharma Type |
+| Binding | Cloudflare Service | the type system Type |
 |---------|-------------------|-------------|
 | database | D1 | `DatabaseBinding` |
 | kv | Workers KV | `KVBinding` |

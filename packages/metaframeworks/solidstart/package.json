@@ -20,7 +20,7 @@
     "clean_install": "rm -rf node_modules dist && pnpm install"
   },
   "dependencies": {
-    "@openhub2/dharma": "workspace:*",
+    "@openhub2/types": "workspace:*",
     "@openhub2/runtime-nitro": "workspace:*"
   },
   "peerDependencies": {

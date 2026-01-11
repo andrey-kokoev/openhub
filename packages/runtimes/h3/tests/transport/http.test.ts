@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { H3HttpTransport } from '../../src/transport/http'
-import type { ProxyRequest } from '@openhub2/dharma'
+import type { ProxyRequest } from '@openhub2/types'
 
 describe('H3HttpTransport', () => {
   const originalFetch = globalThis.fetch

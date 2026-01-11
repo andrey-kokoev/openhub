@@ -1,4 +1,4 @@
-import type { DevtoolsContext } from '@openhub2/dharma'
+import type { DevtoolsContext } from '@openhub2/types'
 import { panel } from './panel'
 
 /**

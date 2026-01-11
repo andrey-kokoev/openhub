@@ -19,7 +19,7 @@ describe('OpenHub config schema', () => {
     expect(schema.required).toContain('provider')
   })
 
-  test('conforms to Dharma ConfigSchema type', () => {
+  test('conforms to the type system ConfigSchema type', () => {
     // Type-level test: if this compiles, the schema conforms
     const testSchema: typeof schema = schema
     expect(testSchema).toBeDefined()
