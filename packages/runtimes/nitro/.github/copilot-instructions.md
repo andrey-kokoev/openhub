@@ -39,7 +39,7 @@ runtime.registerProvider(cloudflareProvider)
 
 ## What It Does
 
-1. **Registers provider** — accepts any Dharma-conforming provider
+1. **Registers provider** — accepts any type system-conforming provider
 2. **Exposes proxy endpoint** — `/__openhub2/proxy` for remote requests
 3. **Injects bindings** — into `event.context.openhub.bindings`
 4. **Detects remote mode** — via environment or config

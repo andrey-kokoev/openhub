@@ -15,9 +15,9 @@ Providers adapt cloud platforms to OpenHub's universal bindings.
 
 ## Creating a Provider
 
-A provider must implement `Provider` from `@openhub2/dharma`:
+A provider must implement `Provider` from `@openhub2/types`:
 ```typescript
-import type { Provider } from '@openhub2/dharma'
+import type { Provider } from '@openhub2/types'
 
 export const myProvider: Provider = {
   name: 'my-provider',

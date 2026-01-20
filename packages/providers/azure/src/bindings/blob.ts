@@ -3,7 +3,7 @@ import type {
   BlobListOptions,
   BlobListResult,
   ProxyTransport,
-} from '@openhub2/dharma'
+} from '@openhub2/types'
 
 export function createBlobBinding (transport: ProxyTransport): BlobBinding {
   return {

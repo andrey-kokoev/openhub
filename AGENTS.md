@@ -30,9 +30,9 @@ OpenHub lets you run `nuxt dev --remote` (or any supported metaframework) and ha
 
 ## Core Concepts
 
-### Dharma (Type System)
+### Types (Type System)
 
-`@openhub2/dharma` is the type contract all layers must satisfy. It defines:
+`@openhub2/types` is the type contract all layers must satisfy. It defines:
 
 - **Layers**: `Provider`, `Runtime`, `Metaframework`
 - **Bindings**: `DatabaseBinding`, `KVBinding`, `BlobBinding`
@@ -58,7 +58,7 @@ OpenHub lets you run `nuxt dev --remote` (or any supported metaframework) and ha
 
 ```
 packages/
-├── dharma/                    # Type definitions (the law)
+├── types/                    # Type definitions (the law)
 ├── providers/
 │   └── cloudflare/            # Cloudflare D1/KV/R2 adapter
 ├── runtimes/
@@ -71,12 +71,12 @@ packages/
 
 ```
 @openhub2/metaframework-nuxt
-├── @openhub2/dharma
+├── @openhub2/types
 └── @openhub2/runtime-nitro
-        └── @openhub2/dharma
+        └── @openhub2/types
 
 @openhub2/provider-cloudflare  (user installs separately)
-└── @openhub2/dharma
+└── @openhub2/types
 ```
 
 Metaframeworks and runtimes don't depend on providers. Users choose and install their provider.
@@ -150,7 +150,7 @@ export default defineEventHandler((event) => {
 ### Provider Implementation
 
 ```typescript
-import type { Provider } from '@openhub2/dharma'
+import type { Provider } from '@openhub2/types'
 
 export const cloudflareProvider: Provider = {
   name: 'cloudflare',
@@ -173,7 +173,7 @@ export const cloudflareProvider: Provider = {
 ### Runtime Implementation
 
 ```typescript
-import type { Runtime } from '@openhub2/dharma'
+import type { Runtime } from '@openhub2/types'
 
 export const nitroRuntime: Runtime = {
   name: 'nitro',
@@ -199,7 +199,7 @@ export const nitroRuntime: Runtime = {
 ### Metaframework Implementation
 
 ```typescript
-import type { Metaframework } from '@openhub2/dharma'
+import type { Metaframework } from '@openhub2/types'
 
 export const nuxtMetaframework: Metaframework = {
   name: 'nuxt',
@@ -263,22 +263,22 @@ x-openhub-secret: <shared-secret>
 ### Providers SHALL NOT
 - Depend on any specific Runtime
 - Depend on any specific Metaframework
-- Define bindings outside Dharma's universal set
+- Define bindings outside the type system's universal set
 
 ### Runtimes SHALL NOT
 - Depend on any specific Metaframework
 - Depend on any specific Provider
-- Modify Dharma's type contracts
+- Modify the type system's type contracts
 
 ### Metaframeworks SHALL NOT
 - Bypass Runtime to access Provider directly
-- Modify Dharma's type contracts
+- Modify the type system's type contracts
 - Require a specific Provider
 
 ## Substitutability Guarantee
 
-Any Provider conforming to Dharma works with any conforming Runtime.
-Any Runtime conforming to Dharma works with any conforming Metaframework.
+Any Provider conforming to the type system works with any conforming Runtime.
+Any Runtime conforming to the type system works with any conforming Metaframework.
 
 ```
 Provider: Cloudflare ─┐
@@ -295,7 +295,7 @@ openhub/
 ├── constitution.md           # Governance and design principles
 ├── tsconfig.json             # Root TypeScript config
 ├── packages/
-│   ├── dharma/
+│   ├── types/
 │   │   ├── src/
 │   │   │   ├── index.ts      # Main exports
 │   │   │   ├── types/
@@ -332,21 +332,21 @@ openhub/
 ## Adding a New Provider
 
 1. Create `packages/providers/<name>/`
-2. Implement `Provider` from `@openhub2/dharma`
+2. Implement `Provider` from `@openhub2/types`
 3. Export provider instance
 4. Add to providers README table
 
 ## Adding a New Runtime
 
 1. Create `packages/runtimes/<name>/`
-2. Implement `Runtime` from `@openhub2/dharma`
+2. Implement `Runtime` from `@openhub2/types`
 3. Export runtime factory
 4. Add to runtimes README table
 
 ## Adding a New Metaframework
 
 1. Create `packages/metaframeworks/<name>/`
-2. Implement `Metaframework` from `@openhub2/dharma`
+2. Implement `Metaframework` from `@openhub2/types`
 3. Export module/plugin
 4. Add to metaframeworks README table
 
@@ -357,7 +357,7 @@ Apache-2.0
 ## See Also
 
 - [constitution.md](./constitution.md) — Governance, amendment process, Bill of Rights
-- [packages/dharma](./packages/dharma/) — Type definitions
+- [packages/types](./packages/types/) — Type definitions
 - [packages/providers](./packages/providers/) — Cloud platform adapters
 - [packages/runtimes](./packages/runtimes/) — Runtime integrations
 - [packages/metaframeworks](./packages/metaframeworks/) — Framework integrations

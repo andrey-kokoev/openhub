@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { Hono } from 'hono'
 import { openhubMiddleware, getBindings } from '../src/middleware'
-import type { Bindings } from '@openhub2/dharma'
+import type { Bindings } from '@openhub2/types'
 
 describe('openhubMiddleware', () => {
   it('should inject bindings into Hono context', async () => {

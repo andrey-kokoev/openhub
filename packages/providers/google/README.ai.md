@@ -35,7 +35,7 @@ export default defineNuxtConfig({
 
 ## Supported Bindings
 
-| Binding | Google Cloud Service | Dharma Type |
+| Binding | Google Cloud Service | the type system Type |
 |---------|---------------------|-------------|
 | database | Cloud SQL / Firestore | `DatabaseBinding` |
 | kv | Firestore / Memorystore | `KVBinding` |

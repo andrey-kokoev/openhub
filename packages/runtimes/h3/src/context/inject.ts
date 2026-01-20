@@ -1,5 +1,5 @@
 import { H3Event } from 'h3'
-import type { Bindings } from '@openhub2/dharma'
+import type { Bindings } from '@openhub2/types'
 
 export function injectBindings(event: H3Event, bindings: Bindings): void {
   if (!event.context.openhub) {

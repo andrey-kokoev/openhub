@@ -12,9 +12,9 @@ Runtimes execute application code and manage bindings within request context.
 
 ## Creating a Runtime Integration
 
-A runtime must implement `Runtime` from `@openhub2/dharma`:
+A runtime must implement `Runtime` from `@openhub2/types`:
 ```typescript
-import type { Runtime } from '@openhub2/dharma'
+import type { Runtime } from '@openhub2/types'
 
 export const myRuntime: Runtime = {
   name: 'my-runtime',

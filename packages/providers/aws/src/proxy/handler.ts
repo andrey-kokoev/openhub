@@ -3,7 +3,7 @@ import type {
   ProxyRequest,
   ProxyResponse,
   Bindings,
-} from '@openhub2/dharma'
+} from '@openhub2/types'
 
 export function createProxyHandler (bindings: Bindings): ProxyHandler {
   return {

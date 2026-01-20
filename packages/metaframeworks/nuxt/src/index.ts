@@ -1,4 +1,4 @@
-import type { Metaframework } from '@openhub2/dharma'
+import type { Metaframework } from '@openhub2/types'
 import { schema } from './config/schema'
 import { registerRemoteFlag } from './cli'
 import { registerDevtools } from './devtools'
@@ -18,7 +18,7 @@ import openhubModule from './module'
  * 
  * Limits (Article IV Section 3):
  * - Does not bypass Runtime to access Provider directly
- * - Does not modify Dharma's type contracts
+ * - Does not modify the type system's type contracts
  * - Does not require a specific Provider
  */
 export const nuxtMetaframework: Metaframework = {

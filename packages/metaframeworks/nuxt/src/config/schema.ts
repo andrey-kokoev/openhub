@@ -1,9 +1,9 @@
-import type { ConfigSchema } from '@openhub2/dharma'
+import type { ConfigSchema } from '@openhub2/types'
 
 /**
  * OpenHub Configuration Schema for Nuxt
  * 
- * Conforms to Dharma's ConfigSchema type (Article I).
+ * Conforms to the type system's ConfigSchema type (Article I).
  * Defines the shape of OpenHub configuration in nuxt.config.ts
  * 
  * Article IV Section 1: "A Metaframework provides developer experience: 

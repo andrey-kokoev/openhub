@@ -4,7 +4,7 @@ import { openhubModule as nitroModule } from '@openhub2/runtime-nitro'
 /**
  * OpenHub Module Options for Nuxt
  * 
- * Conforms to Dharma's MetaframeworkConfig type
+ * Conforms to the type system's MetaframeworkConfig type
  */
 export interface ModuleOptions {
   /** Provider package name (e.g., @openhub2/provider-cloudflare) */
@@ -28,7 +28,7 @@ export interface ModuleOptions {
  * 
  * Conforms to Constitutional limits:
  * - Does not bypass Runtime to access Provider directly
- * - Does not modify Dharma's type contracts
+ * - Does not modify the type system's type contracts
  * - Does not require a specific Provider (provider is configurable)
  */
 export default defineNuxtModule<ModuleOptions>({

@@ -1,5 +1,5 @@
 packages:
-  - packages/dharma
+  - packages/types
   - packages/providers/*
   - packages/runtimes/*
   - packages/metaframeworks/*

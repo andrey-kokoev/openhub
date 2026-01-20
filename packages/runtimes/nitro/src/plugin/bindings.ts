@@ -1,6 +1,6 @@
 import { defineNitroPlugin, useRuntimeConfig } from 'nitropack/runtime'
 import type { H3Event } from 'h3'
-import type { PlatformContext } from '@openhub2/dharma'
+import type { PlatformContext } from '@openhub2/types'
 import runtime from '../context/runtime'
 import { NitroHttpTransport } from '../transport/http'
 

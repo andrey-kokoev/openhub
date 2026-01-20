@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { createRuntime, HonoRuntime } from '../src/runtime'
-import type { Provider } from '@openhub2/dharma'
+import type { Provider } from '@openhub2/types'
 
 describe('HonoRuntime', () => {
   it('should create a runtime instance', () => {

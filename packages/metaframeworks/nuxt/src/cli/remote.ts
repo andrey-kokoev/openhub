@@ -1,4 +1,4 @@
-import type { FlagOptions } from '@openhub2/dharma'
+import type { FlagOptions } from '@openhub2/types'
 
 /**
  * --remote flag for `nuxt dev`

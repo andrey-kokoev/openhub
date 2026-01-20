@@ -3,7 +3,7 @@ import { injectBindings } from '../context/inject'
 import runtime from '../context/runtime'
 import { H3HttpTransport } from '../transport/http'
 import type { H3Event } from 'h3'
-import type { Bindings, PlatformContext } from '@openhub2/dharma'
+import type { Bindings, PlatformContext } from '@openhub2/types'
 
 export default defineEventHandler(async (event: H3Event) => {
   // Check if we're in remote mode

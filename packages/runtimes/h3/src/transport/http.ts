@@ -1,4 +1,4 @@
-import type { ProxyRequest, ProxyResponse, HttpProxyTransport } from '@openhub2/dharma'
+import type { ProxyRequest, ProxyResponse, HttpProxyTransport } from '@openhub2/types'
 
 export class H3HttpTransport implements HttpProxyTransport {
   readonly url: string

@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { Hono } from 'hono'
 import { createRuntime } from '../../src/runtime'
-import type { Provider, Bindings, ProxyHandler } from '@openhub2/dharma'
+import type { Provider, Bindings, ProxyHandler } from '@openhub2/types'
 import bindingsMiddleware from '../../src/plugin/bindings'
 
 async function importMiddleware (runtime: any, runtimeConfig: any) {
