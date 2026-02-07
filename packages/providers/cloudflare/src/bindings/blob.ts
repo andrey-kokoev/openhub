@@ -4,7 +4,7 @@ import type {
   BlobListResult,
   BlobPutOptions,
   ProxyTransport,
-} from '@openhub2/dharma'
+} from '@openhub2/types'
 
 type EncodedBlob = {
   base64: string

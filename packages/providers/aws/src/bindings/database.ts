@@ -5,7 +5,7 @@ import type {
   QueryResult,
   BatchResult,
   ProxyTransport,
-} from '@openhub2/dharma'
+} from '@openhub2/types'
 
 class AWSPreparedStatement implements PreparedStatement {
   constructor(

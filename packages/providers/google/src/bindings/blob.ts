@@ -1,4 +1,4 @@
-import type { BlobBinding, BlobListOptions, BlobListResult, ProxyTransport } from '@openhub2/dharma'
+import type { BlobBinding, BlobListOptions, BlobListResult, ProxyTransport } from '@openhub2/types'
 
 export function createBlobBinding (transport: ProxyTransport): BlobBinding {
   return {

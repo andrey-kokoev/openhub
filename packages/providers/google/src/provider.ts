@@ -1,4 +1,4 @@
-import type { Provider, ProxyTransport, Bindings, PlatformContext } from '@openhub2/dharma'
+import type { Provider, ProxyTransport, Bindings, PlatformContext } from '@openhub2/types'
 import { createDatabaseBinding, createKVBinding, createBlobBinding } from './bindings'
 import { createProxyHandler } from './proxy'
 import { extractBindings } from './platform'

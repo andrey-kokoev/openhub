@@ -1,4 +1,4 @@
-import type { Runtime, Provider, ProxyHandler, Bindings } from '@openhub2/dharma'
+import type { Runtime, Provider, ProxyHandler, Bindings } from '@openhub2/types'
 
 export class HonoRuntime implements Runtime {
   name = 'hono'

@@ -1,4 +1,4 @@
-import type { ProxyTransport, ProxyRequest, ProxyResponse } from '@openhub2/dharma'
+import type { ProxyTransport, ProxyRequest, ProxyResponse } from '@openhub2/types'
 
 export function createTransport (url: string, secret: string): ProxyTransport {
   return {

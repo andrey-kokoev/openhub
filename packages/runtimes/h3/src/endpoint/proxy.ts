@@ -1,6 +1,6 @@
 import { eventHandler, readBody, getHeader, createError } from 'h3'
 import type { H3Event } from 'h3'
-import type { ProxyRequest } from '@openhub2/dharma'
+import type { ProxyRequest } from '@openhub2/types'
 import runtime from '../context/runtime'
 
 export default eventHandler(async (event: H3Event) => {

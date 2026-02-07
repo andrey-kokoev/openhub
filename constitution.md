@@ -4,24 +4,24 @@
 
 We, the developers who depend on open infrastructure, in order to preserve the capability of remote development, ensure framework independence, provide for community ownership, promote interoperability, and secure the benefits of hot reload against real data to ourselves and future developers, do establish this Constitution for OpenHub.
 
-## Article I: Dharma
+## Article I: Type System
 
 ### Section 1: Supremacy
-Dharma is the supreme type system of OpenHub. All Providers, Runtimes, and Metaframeworks must conform to Dharma. Any implementation inconsistent with Dharma is invalid.
+The type system is supreme for OpenHub. All Providers, Runtimes, and Metaframeworks must conform to it. Any implementation inconsistent with the type system is invalid.
 
 ### Section 2: Scope
-Dharma defines:
+The type system defines:
 - The shape of each layer (Provider, Runtime, Metaframework)
 - The boundaries between layers (P→R, R→P, R→M, M→R)
 - The universal binding types (Database, KV, Blob)
 
 ### Section 3: Limits
-Dharma shall make no definition beyond what is necessary for interoperability. Platform-specific bindings are outside Dharma's scope.
+The type system shall make no definition beyond what is necessary for interoperability. Platform-specific bindings are outside the type system's scope.
 
 ## Article II: Providers
 
 ### Section 1: Purpose
-A Provider adapts a cloud platform's primitives to Dharma's universal bindings.
+A Provider adapts a cloud platform's primitives to the type system's universal bindings.
 
 ### Section 2: Powers
 A Provider may:
@@ -33,7 +33,7 @@ A Provider may:
 A Provider shall not:
 - Depend on any specific Runtime
 - Depend on any specific Metaframework
-- Define bindings outside Dharma's universal set
+- Define bindings outside the type system's universal set
 
 ## Article III: Runtimes
 
@@ -51,7 +51,7 @@ A Runtime may:
 A Runtime shall not:
 - Depend on any specific Metaframework
 - Depend on any specific Provider
-- Modify Dharma's type contracts
+- Modify the type system's type contracts
 
 ## Article IV: Metaframeworks
 
@@ -68,18 +68,18 @@ A Metaframework may:
 ### Section 3: Limits
 A Metaframework shall not:
 - Bypass Runtime to access Provider directly
-- Modify Dharma's type contracts
+- Modify the type system's type contracts
 - Require a specific Provider
 
 ## Article V: Amendment
 
 ### Section 1: Proposal
-Amendments to Dharma may be proposed by any contributor via pull request.
+Amendments to the type system may be proposed by any contributor via pull request.
 
 ### Section 2: Ratification
 An amendment is ratified when:
 - It maintains backward compatibility, OR
-- It increments Dharma's major version
+- It increments the type system's major version
 - It receives approval from maintainers of at least two implementations across different layers
 
 ### Section 3: Breaking Changes
@@ -88,15 +88,15 @@ No amendment shall break existing conforming implementations without major versi
 ## Article VI: Interoperability
 
 ### Section 1: Substitutability
-Any Provider conforming to Dharma shall work with any Runtime conforming to Dharma. Any Runtime conforming to Dharma shall work with any Metaframework conforming to Dharma.
+Any Provider conforming to the type system shall work with any Runtime conforming to the type system. Any Runtime conforming to the type system shall work with any Metaframework conforming to the type system.
 
 ### Section 2: Certification
-An implementation may claim OpenHub conformance only if it passes Dharma's type tests.
+An implementation may claim OpenHub conformance only if it passes the type system's type tests.
 
 ## Article VII: Ratification
 
 This Constitution takes effect upon:
-- Publication of @openhub2/dharma to npm
+- Publication of @openhub2/types to npm
 - At least one conforming Provider
 - At least one conforming Runtime
 - At least one conforming Metaframework
@@ -119,7 +119,7 @@ The community shall be secure in their data; no telemetry or tracking shall exis
 No implementation shall be merged that breaks conforming downstream implementations without due process (Article V).
 
 ### VI
-In all disputes over conformance, Dharma's type tests shall be the final arbiter.
+In all disputes over conformance, the type system's type tests shall be the final arbiter.
 
 ### VII
 Powers not enumerated to Providers, Runtimes, or Metaframeworks are reserved to application developers.

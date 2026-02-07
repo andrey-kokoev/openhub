@@ -1,5 +1,5 @@
 import type { EventHandler, H3Event } from 'h3'
-import type { Bindings } from '@openhub2/dharma'
+import type { Bindings } from '@openhub2/types'
 
 /**
  * H3 event handler to inject OpenHub bindings into the event context

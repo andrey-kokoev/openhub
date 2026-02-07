@@ -1,10 +1,10 @@
-# @openhub2/dharma
+# @openhub2/types
 
 Type constraints for the OpenHub ecosystem.
 
-## What is Dharma?
+## What is the type system?
 
-Dharma defines the law that all OpenHub layers must conform to:
+The type system defines the law that all OpenHub layers must conform to:
 
 - **Layers**: Provider, Runtime, Metaframework
 - **Boundaries**: What crosses between layers
@@ -12,10 +12,10 @@ Dharma defines the law that all OpenHub layers must conform to:
 
 ## Installation
 
-If you're using an OpenHub metaframework or runtime, dharma is included as a transitive dependency. You only need to install it directly if you're building a Provider, Runtime, or Metaframework.
+If you're using an OpenHub metaframework or runtime, types is included as a transitive dependency. You only need to install it directly if you're building a Provider, Runtime, or Metaframework.
 
 ```bash
-pnpm add -D @openhub2/dharma
+pnpm add -D @openhub2/types
 ```
 
 ## Usage
@@ -23,7 +23,7 @@ pnpm add -D @openhub2/dharma
 ### Layer Types
 
 ```typescript
-import type { Provider, Runtime, Metaframework } from '@openhub2/dharma'
+import type { Provider, Runtime, Metaframework } from '@openhub2/types'
 ```
 
 ### Binding Types
@@ -34,23 +34,23 @@ import type {
   KVBinding, 
   BlobBinding,
   Bindings 
-} from '@openhub2/dharma/subtypes'
+} from '@openhub2/types/subtypes'
 ```
 
 ### Boundary Types
 
 ```typescript
-import type { ProxyRequest, ProxyResponse } from '@openhub2/dharma/boundaries'
+import type { ProxyRequest, ProxyResponse } from '@openhub2/types/boundaries'
 ```
 
 ## Exports
 
 | Export | Path | Contents |
 |--------|------|----------|
-| Main | `@openhub2/dharma` | `Provider`, `Runtime`, `Metaframework` |
-| Layers | `@openhub2/dharma/layers` | Layer type definitions |
-| Boundaries | `@openhub2/dharma/boundaries` | `ProxyRequest`, `ProxyResponse`, cross-layer contracts |
-| Subtypes | `@openhub2/dharma/subtypes` | `Bindings`, `DatabaseBinding`, `KVBinding`, `BlobBinding` |
+| Main | `@openhub2/types` | `Provider`, `Runtime`, `Metaframework` |
+| Layers | `@openhub2/types/layers` | Layer type definitions |
+| Boundaries | `@openhub2/types/boundaries` | `ProxyRequest`, `ProxyResponse`, cross-layer contracts |
+| Subtypes | `@openhub2/types/subtypes` | `Bindings`, `DatabaseBinding`, `KVBinding`, `BlobBinding` |
 
 ## For Implementers
 
@@ -59,7 +59,7 @@ If you are building a Provider, Runtime, or Metaframework, your implementation m
 ### Provider
 
 ```typescript
-import type { Provider } from '@openhub2/dharma'
+import type { Provider } from '@openhub2/types'
 
 export const myProvider: Provider = {
   name: 'my-provider',
@@ -73,7 +73,7 @@ export const myProvider: Provider = {
 ### Runtime
 
 ```typescript
-import type { Runtime } from '@openhub2/dharma'
+import type { Runtime } from '@openhub2/types'
 
 export const myRuntime: Runtime = {
   name: 'my-runtime',
@@ -87,7 +87,7 @@ export const myRuntime: Runtime = {
 ### Metaframework
 
 ```typescript
-import type { Metaframework } from '@openhub2/dharma'
+import type { Metaframework } from '@openhub2/types'
 
 export const myMetaframework: Metaframework = {
   name: 'my-metaframework',

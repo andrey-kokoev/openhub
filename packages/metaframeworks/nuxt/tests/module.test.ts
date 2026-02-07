@@ -6,7 +6,7 @@ describe('nuxtMetaframework', () => {
     expect(nuxtMetaframework.name).toBe('nuxt')
   })
 
-  test('implements Dharma Metaframework interface', () => {
+  test('implements the type system Metaframework interface', () => {
     expect(nuxtMetaframework.configureRuntime).toBeDefined()
     expect(nuxtMetaframework.defineConfig).toBeDefined()
     expect(nuxtMetaframework.registerCLI).toBeDefined()

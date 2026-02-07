@@ -1,4 +1,4 @@
-import type { CLIContext } from '@openhub2/dharma'
+import type { CLIContext } from '@openhub2/types'
 import { remoteFlagOptions, parseRemoteFlag } from './remote'
 
 /**

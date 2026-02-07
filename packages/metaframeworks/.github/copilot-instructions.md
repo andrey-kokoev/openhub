@@ -12,9 +12,9 @@ Metaframeworks provide developer experience on top of OpenHub runtimes.
 
 ## Creating a Metaframework Integration
 
-A metaframework must implement `Metaframework` from `@openhub2/dharma`:
+A metaframework must implement `Metaframework` from `@openhub2/types`:
 ```typescript
-import type { Metaframework } from '@openhub2/dharma'
+import type { Metaframework } from '@openhub2/types'
 
 export const myMetaframework: Metaframework = {
   name: 'my-metaframework',
