@@ -56,6 +56,19 @@ function npmLatest(name) {
   }
 }
 
+function npmVersionExists(name, version) {
+  try {
+    execFileSync("npm", ["view", `${name}@${version}`, "version"], {
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "pipe"],
+      env: { ...process.env, npm_config_loglevel: "silent" },
+    });
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
 function topoSort(pkgs) {
   // deps-first order among these pkgs, using local deps from dependencies/optional/peer
   const byName = new Map(pkgs.map((p) => [p.name, p]));
@@ -113,7 +126,7 @@ for (const dir of dirs) {
   all.push({ dir, file, name: j.name, local: j.version, private: !!j.private, json: j });
 }
 
-const report = { BEHIND: [], EQUAL: [], AHEAD_REMOTE: [], MISSING: [], SKIP: [] };
+const report = { BEHIND: [], EQUAL: [], AHEAD_REMOTE: [], MISSING: [], SKIP: [], PUBLISHED: [] };
 
 for (const p of all) {
   if (p.private) {
@@ -122,7 +135,12 @@ for (const p of all) {
   }
   const latest = npmLatest(p.name);
   if (!latest) {
-    report.MISSING.push({ ...p, npm: null });
+    // Check if specific version exists (registry may have replication delays)
+    if (npmVersionExists(p.name, p.local)) {
+      report.PUBLISHED.push({ ...p, npm: p.local });
+    } else {
+      report.MISSING.push({ ...p, npm: null });
+    }
     continue;
   }
   const c = cmpSemver(p.local, latest);
@@ -133,6 +151,7 @@ for (const p of all) {
 
 for (const p of report.SKIP) console.log(`SKIP  ${p.name} (private)`);
 for (const p of report.EQUAL) console.log(`OK    ${p.name}  local=${p.local}  npm(latest)=${p.npm}`);
+for (const p of report.PUBLISHED) console.log(`OK    ${p.name}  local=${p.local}  (version exists on npm)`);
 for (const p of report.BEHIND) console.log(`BEHIND ${p.name}  local=${p.local}  npm(latest)=${p.npm}`);
 for (const p of report.MISSING) console.log(`MISSING ${p.name}  local=${p.local}  (not on npm / no access)`);
 for (const p of report.AHEAD_REMOTE) console.log(`REMOTE_NEWER ${p.name}  local=${p.local}  npm(latest)=${p.npm}`);
