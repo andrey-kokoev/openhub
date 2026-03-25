@@ -105,7 +105,7 @@ describe('bindings middleware', () => {
     await middleware(event)
 
     const platformContext = {
-      platform: 'h3',
+      platform: 'cloudflare',
       env: { DB: db, KV: kv }
     }
     expect(provider1.extractBindings).toHaveBeenCalledWith(platformContext)
