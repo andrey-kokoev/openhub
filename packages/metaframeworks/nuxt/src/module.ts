@@ -1,4 +1,5 @@
 import { defineNuxtModule, createResolver, addTypeTemplate } from '@nuxt/kit'
+import type { NuxtModule } from '@nuxt/schema'
 import { openhubModule as nitroModule } from '@openhub2/runtime-nitro'
 
 /**
@@ -31,7 +32,7 @@ export interface ModuleOptions {
  * - Does not modify the type system's type contracts
  * - Does not require a specific Provider (provider is configurable)
  */
-export default defineNuxtModule<ModuleOptions>({
+const openhubNuxtModule: NuxtModule<ModuleOptions> = defineNuxtModule<ModuleOptions>({
   meta: {
     name: '@openhub2/metaframework-nuxt',
     configKey: 'openhub',
@@ -70,7 +71,8 @@ export {}
 
     // ✅ Register OpenHub Nitro Runtime module
     // This is how the Metaframework configures the Runtime (Article IV Section 2)
-    nuxt.hook('nitro:config', (nitroConfig) => {
+    // @ts-expect-error - nitro:config hook type not in NuxtHooks
+    nuxt.hook('nitro:config', (nitroConfig: any) => {
       nitroConfig.modules = nitroConfig.modules || []
       nitroConfig.modules.push(nitroModule)
 
@@ -110,3 +112,4 @@ export {}
   },
 })
 
+export default openhubNuxtModule

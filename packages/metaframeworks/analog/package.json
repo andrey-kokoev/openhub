@@ -29,9 +29,10 @@
   "devDependencies": {
     "@analogjs/platform": "^1.14.0",
     "@analogjs/vite-plugin-angular": "^1.14.0",
+    "@vitest/ui": "^4.0.18",
     "tsup": "^8.5.1",
-    "typescript": "^5.9.3",
-    "vitest": "^4.0.16"
+    "typescript": "~5.7.3",
+    "vitest": "^4.0.18"
   },
   "publishConfig": {
     "access": "public"
