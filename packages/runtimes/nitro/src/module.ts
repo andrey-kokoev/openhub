@@ -7,6 +7,8 @@ const __dirname = dirname(__require.resolve('@openhub2/runtime-nitro/package.jso
 
 export const openhubModule = (nitro: Nitro) => {
   console.log('[openhub] Nitro module starting')
+  console.log('[openhub] __dirname:', __dirname)
+  console.log('[openhub] plugin path:', join(__dirname, 'src/plugin/bindings.ts'))
   const providerName = nitro.options.runtimeConfig.openhub?.provider
   console.log('[openhub] Provider name:', providerName)
 

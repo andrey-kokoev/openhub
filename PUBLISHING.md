@@ -87,8 +87,8 @@ node scripts/check-published.mjs
 Before publishing, bump versions in package.json files:
 
 ```bash
-# Example: bump dharma package
-# Edit packages/dharma/package.json version field
+# Example: bump types package
+# Edit packages/types/package.json version field
 # Then update dependent packages' dependencies
 ```
 

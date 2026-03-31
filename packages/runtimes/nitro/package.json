@@ -1,6 +1,6 @@
 {
   "name": "@openhub2/runtime-nitro",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "OpenHub runtime integration for Nitro",
   "license": "Apache-2.0",
   "type": "module",
